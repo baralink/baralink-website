@@ -1,0 +1,40 @@
+<svg width="800" height="900" viewBox="0 0 800 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="screenGrad" x1="0" y1="0" x2="800" y2="900" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#1417D9"/>
+      <stop offset="1" stop-color="#0A0E7F"/>
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#F5C518"/>
+      <stop offset="1" stop-color="#FFD84A"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="220" y="30" width="360" height="820" rx="54" fill="#0B1020"/>
+  <rect x="240" y="52" width="320" height="776" rx="42" fill="url(#screenGrad)"/>
+  <rect x="270" y="90" width="260" height="18" rx="9" fill="#DDE7FF" fill-opacity="0.28"/>
+  <circle cx="400" cy="110" r="7" fill="#F3F7FF" fill-opacity="0.42"/>
+
+  <rect x="290" y="166" width="220" height="118" rx="18" fill="#F5F7FF" fill-opacity="0.12"/>
+  <rect x="318" y="196" width="120" height="12" rx="6" fill="#FFFFFF" fill-opacity="0.85"/>
+  <rect x="318" y="220" width="92" height="10" rx="5" fill="#D9E1FF" fill-opacity="0.8"/>
+  <rect x="518" y="190" width="92" height="34" rx="17" fill="url(#cardGrad)"/>
+  <rect x="534" y="204" width="60" height="8" rx="4" fill="#0B1020" fill-opacity="0.8"/>
+
+  <rect x="285" y="332" width="230" height="104" rx="18" fill="#DDE7FF" fill-opacity="0.16"/>
+  <rect x="305" y="352" width="160" height="12" rx="6" fill="#FFFFFF" fill-opacity="0.9"/>
+  <rect x="305" y="378" width="118" height="10" rx="5" fill="#D9E1FF" fill-opacity="0.7"/>
+  <rect x="603" y="318" width="74" height="74" rx="16" fill="#F5F7FF" fill-opacity="0.14"/>
+  <path d="M632 341L643.5 369L668 377L643.5 385L632 413L620.5 385L596 377L620.5 369L632 341Z" fill="#F5C518"/>
+
+  <rect x="290" y="470" width="220" height="180" rx="24" fill="#F4F7FF"/>
+  <rect x="318" y="496" width="150" height="12" rx="6" fill="#3A56D4" fill-opacity="0.82"/>
+  <rect x="318" y="520" width="125" height="10" rx="5" fill="#9FB1FF"/>
+  <rect x="318" y="560" width="160" height="52" rx="12" fill="#EEF1FD"/>
+  <rect x="332" y="574" width="60" height="10" rx="5" fill="#1A1AE6" fill-opacity="0.8"/>
+  <rect x="404" y="574" width="56" height="10" rx="5" fill="#AFC0FF"/>
+
+  <rect x="310" y="680" width="180" height="92" rx="18" fill="#111827" fill-opacity="0.9"/>
+  <rect x="328" y="700" width="76" height="12" rx="6" fill="#F5C518"/>
+  <rect x="328" y="722" width="98" height="10" rx="5" fill="#A6B4FF" fill-opacity="0.8"/>
+</svg>
