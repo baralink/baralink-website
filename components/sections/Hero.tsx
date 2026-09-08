@@ -8,10 +8,20 @@ export function Hero() {
       id="top"
       className="relative isolate min-h-[calc(100vh-72px)] overflow-hidden bg-primary text-white flex items-center"
     >
+      <div
+        className="absolute inset-y-0 left-0 -z-20 hidden w-[78%] bg-cover bg-center bg-no-repeat lg:block"
+        style={{ backgroundImage: "url('/logos/bg.png')" }}
+        aria-hidden="true"
+      />
+      <div
+        className="absolute inset-y-0 left-0 -z-10 hidden w-[78%] bg-[linear-gradient(90deg,rgba(26,26,230,0.85),rgba(26,26,230,0.72),rgba(26,26,230,0.45))] lg:block"
+        aria-hidden="true"
+      />
+
       {/* Right Side Vertical Color Block (Matches the yellow block from screenshot) */}
-      <div 
-        className="absolute top-0 right-0 bottom-0 -z-10 h-full w-full lg:w-[36%] bg-accent" 
-        aria-hidden="true" 
+      <div
+        className="absolute top-0 right-0 bottom-0 -z-10 h-full w-full lg:w-[36%] bg-accent"
+        aria-hidden="true"
       />
 
       <div className="mx-auto w-full max-w-7xl px-6 py-12 sm:px-10 lg:px-16 lg:py-20">

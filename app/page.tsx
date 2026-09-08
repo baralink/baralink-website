@@ -3,6 +3,7 @@ import { Footer } from "@/components/layout/Footer";
 import { Hero } from "@/components/sections/Hero";
 import { Features } from "@/components/sections/Features";
 import { Pricing } from "@/components/sections/Pricing";
+import { BannerCTA } from "@/components/sections/BannerCTA";
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
+        <BannerCTA />
         <Features />
         <Pricing />
       </main>
