@@ -18,7 +18,7 @@ export function Hero() {
         aria-hidden="true"
       />
 
-      {/* Right Side Vertical Color Block (Matches the yellow block from screenshot) */}
+
       <div
         className="absolute top-0 right-0 bottom-0 -z-10 h-full w-full lg:w-[36%] bg-accent"
         aria-hidden="true"
