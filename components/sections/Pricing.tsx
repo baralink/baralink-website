@@ -5,7 +5,7 @@ export function Pricing() {
         <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
           <div className="max-w-2xl">
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#1A1AE6]">
-              Start growing faster
+              Start growing faster then
             </p>
             <h2 className="mt-3 text-3xl font-bold text-slate-950 sm:text-4xl">
               Turn your marketing engine into a predictable revenue channel.
