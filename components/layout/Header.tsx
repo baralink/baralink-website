@@ -153,7 +153,7 @@ export default function Header() {
           aria-hidden="true"
         />
 
-        {/* Hyper-Responsive Slide-Down Mobile Drawer */}
+      
         <div
           className={`absolute top-full left-0 w-full bg-white border-b border-slate-200/80 shadow-2xl z-40 transition-all duration-300 ease-in-out transform lg:hidden ${
             mobileMenuOpen
