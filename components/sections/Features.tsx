@@ -1,6 +1,6 @@
 const features = [
   {
-    title: "Smart lead capture",
+    title: "Smart lead capture 1",
     description:
       "Turn inbound interest into structured pipelines with automated forms, qualification rules, and instant routing.",
   },
