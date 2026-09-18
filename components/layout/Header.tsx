@@ -31,7 +31,7 @@ export default function Header() {
   return (
     <div className="sticky top-0 z-50 w-full shadow-sm">
       {/* Top Announcement Bar */}
-      <div className="bg-[var(--color-primary)] text-white text-xs sm:text-sm py-2 px-4 sm:px-6 lg:px-8 border-b border-white/10">
+      <div className="bg-[var(--color-primary)] text-white text-xs sm:text-sm py-1.5 px-3 sm:px-4 lg:px-6 border-b border-white/10">
         <div className="max-w-7xl mx-auto flex items-center justify-between gap-2">
           <div className="flex items-center space-x-2 truncate">
             <span className="hidden xs:inline-block shrink-0 rounded-full bg-white/20 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider">
@@ -63,7 +63,7 @@ export default function Header() {
 
       {/* Main Navigation Bar */}
       <header className="w-full bg-white/95 backdrop-blur-md text-[var(--foreground)] border-b border-slate-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6">
           <div className="flex items-center justify-between h-20 sm:h-24">
             
             {/* Logo */}
@@ -73,9 +73,9 @@ export default function Header() {
                   <Image
                     src="/logos/BaraLink-Logo-white.png"
                     alt="BaraLink Logo"
-                    width={220}
-                    height={80}
-                    className="h-32 sm:h-16 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+                    width={300}
+                    height={330}
+                    className="h-20 sm:h-24 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
                     priority
                   />
                 </div>
