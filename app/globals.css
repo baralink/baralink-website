@@ -15,8 +15,8 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-poppins);
-  --font-mono: var(--font-poppins);
+  --font-sans: var(--font-instrument-sans);
+  --font-mono: var(--font-instrument-sans);
   --color-primary: var(--color-primary);
   --color-primary-light: var(--color-primary-light);
   --color-primary-dark: var(--color-primary-dark);
@@ -32,7 +32,16 @@ body {
   min-height: 100vh;
   background: linear-gradient(180deg, #f8faff 0%, #ffffff 100%);
   color: var(--foreground);
-  font-family: var(--font-poppins), Arial, Helvetica, sans-serif;
+  font-family: var(--font-instrument-sans), system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Tight, modern headline tracking */
+h1,
+h2,
+h3 {
+  letter-spacing: -0.025em;
 }
 
 * {
@@ -41,4 +50,54 @@ body {
 
 ::selection {
   background: rgba(26, 26, 230, 0.18);
+}
+
+/* Scroll-reveal + ambient animations */
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float-slow {
+  0%,
+  100% {
+    transform: translateY(0) translateX(0);
+  }
+  50% {
+    transform: translateY(-24px) translateX(12px);
+  }
+}
+
+@keyframes grow-line {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.reveal {
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .animate-rise {
+    animation: rise-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .animate-float {
+    animation: float-slow 9s ease-in-out infinite;
+  }
+
+  .animate-line {
+    transform-origin: left;
+    animation: grow-line 0.9s ease-out 0.3s both;
+  }
 }

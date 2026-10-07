@@ -28,6 +28,40 @@ export default function Header() {
     { name: 'Contact Us', href: '#contact' },
   ];
 
+  function StoreBadges({ mobile = false }: { mobile?: boolean }) {
+    const size = mobile ? 'h-16' : 'h-20';
+    return (
+      <>
+        <a
+          href="#download"
+          aria-label="Download on the App Store"
+          className="inline-block transition-transform duration-300 hover:scale-105 active:scale-95"
+        >
+          <Image
+            src="/assets/social/appleStore.png"
+            alt="Download on the App Store"
+            width={800}
+            height={800}
+            className={`${size} w-auto object-contain`}
+          />
+        </a>
+        <a
+          href="#download"
+          aria-label="Get it on Google Play"
+          className="inline-block transition-transform duration-300 hover:scale-105 active:scale-95"
+        >
+          <Image
+            src="/assets/social/googlePlay.png"
+            alt="Get it on Google Play"
+            width={800}
+            height={800}
+            className={`${size} w-auto object-contain`}
+          />
+        </a>
+      </>
+    );
+  }
+
   return (
     <div className="sticky top-0 z-50 w-full shadow-sm">
       {/* Top Announcement Bar */}
@@ -75,7 +109,7 @@ export default function Header() {
                     alt="BaraLink Logo"
                     width={300}
                     height={330}
-                    className="h-14 sm:h-18 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+                    className="h-16 sm:h-24 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
                     priority
                   />
                 </div>
@@ -102,14 +136,14 @@ export default function Header() {
               ))}
             </nav>
 
-            {/* Desktop CTA Button */}
-            <div className="hidden lg:flex items-center">
-              <Link
-                href="#download"
-                className="inline-flex items-center justify-center px-6 py-2.5 rounded-full text-sm font-semibold bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-dark)] transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0"
-              >
-                Download the App
-              </Link>
+            {/* Desktop Store Badges */}
+            <div className="hidden lg:flex items-center gap-3">
+              <StoreBadges />
+            </div>
+
+            {/* Mobile Store Badges (centered next to logo) */}
+            <div className="flex lg:hidden items-center gap-2.5">
+              <StoreBadges mobile />
             </div>
 
             {/* Mobile Menu Trigger Button */}
@@ -184,17 +218,6 @@ export default function Header() {
                 </svg>
               </Link>
             ))}
-
-            {/* Mobile CTA Button */}
-            <div className="pt-4 border-t border-slate-100 mt-4">
-              <Link
-                href="#download"
-                className="flex items-center justify-center w-full px-6 py-3.5 rounded-xl text-base font-bold bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-dark)] active:scale-[0.98] transition-all shadow-md"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Download the App
-              </Link>
-            </div>
           </div>
         </div>
       </header>

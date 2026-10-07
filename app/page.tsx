@@ -1,7 +1,9 @@
 import Header from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Hero } from "@/components/sections/Hero";
-import { Features } from "@/components/sections/Features";
+import { About } from "@/components/sections/About";
+import { HowItWorks } from "@/components/sections/HowItWorks";
+import { ForEveryone } from "@/components/sections/ForEveryone";
 import { Pricing } from "@/components/sections/Pricing";
 import { BannerCTA } from "@/components/sections/BannerCTA";
 
@@ -11,9 +13,11 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
-        <BannerCTA />
-        <Features />
+        <About />
+        <HowItWorks />
+        <ForEveryone />
         <Pricing />
+        <BannerCTA />
       </main>
       <Footer />
     </>
