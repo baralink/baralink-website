@@ -1,19 +1,7 @@
-import Image from "next/image";
+'use client';
 
-const footerLinks = {
-  Company: [
-    { label: "About us", href: "#about" },
-    { label: "How it works", href: "#how-it-works" },
-    { label: "For Clients", href: "#for-clients" },
-    { label: "For Workers", href: "#for-workers" },
-    { label: "Contact us", href: "#contact" },
-  ],
-  "For Workers": [
-    { label: "Join as a worker", href: "#for-workers" },
-    { label: "Verification", href: "#how-it-works" },
-    { label: "FAQs", href: "#contact" },
-  ],
-};
+import Image from "next/image";
+import { useI18n } from "@/lib/i18n/I18nProvider";
 
 const socials = [
   {
@@ -44,19 +32,25 @@ const socials = [
 ];
 
 export function Footer() {
+  const { t } = useI18n();
+  const footerLinks = {
+    [t.footer.columns.company]: t.footer.company,
+    [t.footer.columns.forWorkers]: t.footer.workers,
+  };
+
   return (
     <footer className="relative">
       {/* White "Get started" CTA band */}
       <div className="bg-white">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-center gap-6 px-6 py-16 sm:flex-row sm:gap-8 lg:px-8">
           <h2 className="text-center text-2xl font-semibold tracking-tight text-primary sm:text-3xl lg:text-4xl">
-            Get started with BaraLink
+            {t.footer.getStarted}
           </h2>
           <a
             href="#download"
             className="inline-flex items-center justify-center rounded-full bg-primary px-7 py-3 text-base font-semibold text-white transition hover:bg-primary-dark"
           >
-            Contact us
+            {t.footer.contact}
           </a>
         </div>
       </div>
@@ -108,7 +102,7 @@ export function Footer() {
 
             <div className="md:text-right">
               <h3 className="text-sm font-medium text-white/60">
-                Stay connected
+                {t.footer.columns.stayConnected}
               </h3>
               <div className="mt-5 flex gap-4 md:justify-end">
                 {socials.map((s) => (
@@ -145,16 +139,16 @@ export function Footer() {
             </div>
             <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
               <a href="#" className="transition hover:text-accent">
-                Legal
+                {t.footer.legal}
               </a>
               <a href="#" className="transition hover:text-accent">
-                Privacy
+                {t.footer.privacy}
               </a>
               <a href="#" className="transition hover:text-accent">
-                Cookie Notice
+                {t.footer.cookies}
               </a>
               <span className="text-white/60">
-                © {new Date().getFullYear()} BaraLink. All rights reserved.
+                © {new Date().getFullYear()} BaraLink. {t.footer.rights}
               </span>
             </div>
           </div>

@@ -3,8 +3,66 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useI18n } from '@/lib/i18n/I18nProvider';
+import type { Locale } from '@/lib/i18n/dictionaries';
+
+function Flag({ locale }: { locale: Locale }) {
+  if (locale === 'fr') {
+    // France tricolor
+    return (
+      <svg className="h-3.5 w-5 shrink-0 rounded-[2px]" viewBox="0 0 9 6" aria-hidden="true">
+        <rect width="3" height="6" x="0" fill="#0055A4" />
+        <rect width="3" height="6" x="3" fill="#fff" />
+        <rect width="3" height="6" x="6" fill="#EF4135" />
+      </svg>
+    );
+  }
+  // United Kingdom (English)
+  return (
+    <svg className="h-3.5 w-5 shrink-0 rounded-[2px]" viewBox="0 0 60 30" aria-hidden="true">
+      <clipPath id="uk-clip">
+        <rect width="60" height="30" />
+      </clipPath>
+      <g clipPath="url(#uk-clip)">
+        <rect width="60" height="30" fill="#012169" />
+        <path d="M0,0 60,30 M60,0 0,30" stroke="#fff" strokeWidth="6" />
+        <path d="M0,0 60,30 M60,0 0,30" stroke="#C8102E" strokeWidth="4" />
+        <path d="M30,0 V30 M0,15 H60" stroke="#fff" strokeWidth="10" />
+        <path d="M30,0 V30 M0,15 H60" stroke="#C8102E" strokeWidth="6" />
+      </g>
+    </svg>
+  );
+}
+
+function LanguageSwitcher({ className = '' }: { className?: string }) {
+  const { locale, setLocale } = useI18n();
+  const options: Locale[] = ['en', 'fr'];
+  return (
+    <div
+      className={`inline-flex items-center rounded-full border border-slate-200 bg-slate-50 p-0.5 text-xs font-semibold ${className}`}
+    >
+      {options.map((opt) => (
+        <button
+          key={opt}
+          type="button"
+          onClick={() => setLocale(opt)}
+          aria-pressed={locale === opt}
+          className={`flex items-center gap-1.5 rounded-full px-2.5 py-1 uppercase transition-colors ${
+            locale === opt
+              ? 'bg-[var(--color-primary)] text-white'
+              : 'text-slate-600 hover:text-slate-900'
+          }`}
+        >
+          <Flag locale={opt} />
+          {opt}
+        </button>
+      ))}
+    </div>
+  );
+}
 
 export default function Header() {
+  const { t } = useI18n();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   // Lock body scrolling when mobile drawer is open
@@ -20,12 +78,12 @@ export default function Header() {
   }, [mobileMenuOpen]);
 
   const navLinks = [
-    { name: 'Home', href: '#home', active: true },
-    { name: 'About Us', href: '#about' },
-    { name: 'How it works', href: '#how-it-works' },
-    { name: 'For Clients', href: '#for-clients' },
-    { name: 'For Workers', href: '#for-workers' },
-    { name: 'Contact Us', href: '#contact' },
+    { name: t.nav.home, href: '#home', active: true },
+    { name: t.nav.about, href: '#about' },
+    { name: t.nav.howItWorks, href: '#how-it-works' },
+    { name: t.nav.forClients, href: '#for-clients' },
+    { name: t.nav.forWorkers, href: '#for-workers' },
+    { name: t.nav.contact, href: '#contact' },
   ];
 
   function StoreBadges({ mobile = false }: { mobile?: boolean }) {
@@ -72,7 +130,7 @@ export default function Header() {
               NEW
             </span>
             <span className="font-medium truncate">
-              🎉 Welcome to BaraLink! The new mobile app is now available for download.
+              {t.announcement}
             </span>
           </div>
           <div className="shrink-0 flex items-center text-white/90">
@@ -89,7 +147,7 @@ export default function Header() {
                 />
               </svg>
               <span className="hidden sm:inline">+1 (800) 555-0199</span>
-              <span className="sm:hidden">Call Us</span>
+              <span className="sm:hidden">{t.callUs}</span>
             </a>
           </div>
         </div>
@@ -136,9 +194,10 @@ export default function Header() {
               ))}
             </nav>
 
-            {/* Desktop Store Badges */}
-            <div className="hidden lg:flex items-center gap-3">
+            {/* Desktop Store Badges + Language */}
+            <div className="hidden lg:flex items-center gap-4">
               <StoreBadges />
+              <LanguageSwitcher />
             </div>
 
             {/* Mobile Store Badges (centered next to logo) */}
@@ -218,6 +277,9 @@ export default function Header() {
                 </svg>
               </Link>
             ))}
+            <div className="pt-3 border-t border-slate-100 mt-3">
+              <LanguageSwitcher />
+            </div>
           </div>
         </div>
       </header>

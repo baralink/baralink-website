@@ -2,10 +2,12 @@
 
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
+import { useI18n } from '@/lib/i18n/I18nProvider';
 
 const slides = ['/logos/bg.png', '/logos/hero2.png'];
 
 export function Hero() {
+  const { t } = useI18n();
   const [active, setActive] = useState(0);
 
   // Auto-advance every 6s
@@ -44,26 +46,24 @@ export function Hero() {
         <div className="mx-auto flex min-h-[560px] max-w-7xl items-center px-6 lg:min-h-[640px] lg:px-8">
           <div className="max-w-2xl py-20 text-white">
             <h1 className="text-4xl font-semibold leading-[1.08] tracking-tight sm:text-5xl lg:text-6xl">
-              Trusted local workers,
-              <br className="hidden sm:block" /> a tap away.
+              {t.hero.titleLine1}
+              <br className="hidden sm:block" /> {t.hero.titleLine2}
             </h1>
             <p className="mt-6 max-w-lg text-base leading-7 text-white/80 sm:text-lg">
-              Book verified workers in Guinea for repairs, cleaning, delivery
-              and everyday home services.
+              {t.hero.description}
             </p>
-            <div className="mt-9 flex flex-wrap items-center gap-4">
+            <div className="mt-9 flex flex-col items-stretch gap-4 sm:flex-row sm:items-center">
               <a
                 href="#download"
                 className="inline-flex items-center justify-center rounded-full bg-accent px-7 py-3 text-base font-semibold text-slate-950 transition hover:bg-accent-dark"
               >
-                Download the app
+                {t.hero.download}
               </a>
               <a
                 href="#how-it-works"
-                className="inline-flex items-center gap-2 text-base font-semibold text-white/90 transition hover:text-white"
+                className="inline-flex items-center justify-center rounded-full bg-white px-7 py-3 text-base font-semibold text-slate-950 transition hover:bg-white/90"
               >
-                See how it works
-                <span aria-hidden="true">&rarr;</span>
+                {t.hero.howItWorks}
               </a>
             </div>
           </div>

@@ -1,6 +1,9 @@
 'use client';
 
+import { useI18n } from '@/lib/i18n/I18nProvider';
+
 export function BannerCTA() {
+  const { t } = useI18n();
   return (
     <section className="relative overflow-hidden bg-white px-6 py-12 sm:px-10 sm:py-16 lg:px-16">
       {/* Main Content Card with Background Pattern & Reduced Height */}
@@ -29,22 +32,17 @@ export function BannerCTA() {
 
         {/* Title */}
         <h2 className="text-2xl font-extrabold tracking-tight text-white sm:text-3xl lg:text-4xl">
-          Your One-Stop Home Solutions Provider
+          {t.banner.title}
         </h2>
 
         {/* Subtitle */}
         <p className="mt-2 text-xs font-bold uppercase tracking-wider text-accent sm:text-sm">
-          From the app to the comforts of your home.
+          {t.banner.subtitle}
         </p>
 
         {/* Paragraph Description */}
         <p className="mx-auto mt-4 max-w-3xl text-sm font-normal leading-relaxed text-white/85 sm:text-base sm:leading-7">
-          BaraLink introduces an integrated home services mobile application with a
-          large selection of technical experts covering all aspects of household
-          care. Our platform bridges the gap in the market to offer users
-          convenient access to a network of trusted and quality service
-          providers. We are committed to enhancing consumer accessibility and
-          convenience, playing a key role in revolutionising home services.
+          {t.banner.body}
         </p>
       </div>
     </section>
