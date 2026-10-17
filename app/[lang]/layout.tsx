@@ -6,6 +6,7 @@ import { dictionaries } from "@/lib/i18n/dictionaries";
 import { LOCALES, SITE_URL, alternatesFor, hasLocale } from "@/lib/i18n/locales";
 import { Analytics } from "@/components/analytics/Analytics";
 import { Invitation } from "@/components/analytics/Invitation";
+import { MobileActionBar } from "@/components/layout/MobileActionBar";
 import "../globals.css";
 
 const instrumentSans = Instrument_Sans({
@@ -55,6 +56,7 @@ export default async function RootLayout({ children, params }: LayoutProps<"/[la
         <I18nProvider locale={lang}>
           <Invitation />
           {children}
+          <MobileActionBar />
           {/* Consent banner, then Google Tag Manager only after "Accept" (analytics plan AN-5). */}
           <Analytics />
         </I18nProvider>

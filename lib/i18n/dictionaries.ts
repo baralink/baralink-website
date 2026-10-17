@@ -19,6 +19,7 @@ const en = {
       forClients: 'For Clients',
       forWorkers: 'For Workers',
       contact: 'Contact Us',
+      faq: 'FAQ',
       menu: 'Menu',
     },
     call: {
@@ -63,9 +64,9 @@ const en = {
       intro:
         'It only takes a few steps to find reliable help and keep your home running without the usual back and forth.',
       steps: [
-        'Search for the service you need near you.',
-        'Book a verified worker and agree on the job.',
-        'Rate the work and build trust for next time.',
+        { title: 'Search', body: 'Search for the service you need near you.' },
+        { title: 'Book and pay', body: 'Book a verified worker, agree on the job and pay in the app: the money is held until the work is done.' },
+        { title: 'Confirm and rate', body: 'Confirm the job is done and rate the work, to build trust for next time.' },
       ],
     },
     forEveryone: {
@@ -83,11 +84,51 @@ const en = {
         body: 'Reach new clients beyond your personal network and turn good work into steady demand. Your ratings and history stay with you, helping you grow a reputation that keeps the jobs coming.',
       },
     },
-    banner: {
-      title: 'Your One-Stop Home Solutions Provider',
-      subtitle: 'From the app to the comforts of your home.',
-      body: 'BaraLink introduces an integrated home services mobile application with a large selection of technical experts covering all aspects of household care. Our platform bridges the gap in the market to offer users convenient access to a network of trusted and quality service providers. We are committed to enhancing consumer accessibility and convenience, playing a key role in revolutionising home services.',
+    sections: {
+      howEyebrow: 'How it works',
+      audienceEyebrow: 'For everyone',
+      servicesEyebrow: 'Services',
+      servicesTitle: 'What you can book',
+      servicesMore: 'And many more trades in the app.',
+      faqEyebrow: 'Questions',
+      faqTitle: 'Frequently asked questions',
     },
+    audiences: {
+      clientsButton: 'Find a worker',
+      workersButton: 'Become a worker',
+    },
+    services: ['Plumbing', 'Electricity', 'Cleaning', 'Painting', 'Carpentry', 'Air conditioning', 'Mechanics', 'Moving'],
+    faq: [
+      {
+        q: 'How does payment work?',
+        a: 'You pay with mobile money in the app before the work starts. BaraLink holds the money and pays the worker only once you confirm the job is done.',
+      },
+      {
+        q: 'How are workers verified?',
+        a: 'Workers send a Guinean identity document that our team checks, and their profile shows when they are verified. After each job, the client rates the work.',
+      },
+      {
+        q: 'Where is BaraLink available?',
+        a: 'We are starting in Conakry.',
+      },
+      {
+        q: 'What if something goes wrong?',
+        a: 'Open a dispute in the app: the payment stays held until our team settles the problem. You can also call us.',
+      },
+      {
+        q: 'How do I become a worker on BaraLink?',
+        a: 'Download the app, sign up as a worker with your phone number, add your skills and your identity document. Once your profile is verified, you can apply for jobs and get paid to your mobile money.',
+      },
+      {
+        q: 'What services can I book?',
+        a: 'Plumbing, electricity, cleaning, painting, carpentry, air conditioning, mechanics, moving and many more.',
+      },
+    ],
+    final: {
+      title: 'Get started with BaraLink',
+      body: 'Download the app, or call us: we will help you get started.',
+    },
+    mobileBar: { call: 'Call', download: 'Download' },
     contact: {
       eyebrow: 'Contact Us',
       heading: 'Get in touch',
@@ -135,8 +176,6 @@ const en = {
       },
     },
     footer: {
-      getStarted: 'Get started with BaraLink',
-      contact: 'Contact us',
       columns: {
         company: 'Company',
         forWorkers: 'For Workers',
@@ -152,7 +191,7 @@ const en = {
       workers: [
         { label: 'Join as a worker', href: '#for-workers' },
         { label: 'Verification', href: '#how-it-works' },
-        { label: 'FAQs', href: '#contact' },
+        { label: 'FAQs', href: '#faq' },
       ],
       legal: 'Legal',
       privacy: 'Privacy',
@@ -255,6 +294,7 @@ const fr: typeof en = {
       forClients: 'Pour les clients',
       forWorkers: 'Pour les travailleurs',
       contact: 'Contact',
+      faq: 'FAQ',
       menu: 'Menu',
     },
     call: {
@@ -299,9 +339,9 @@ const fr: typeof en = {
       intro:
         'Quelques étapes suffisent pour trouver de l’aide fiable et faire tourner votre foyer sans les allers-retours habituels.',
       steps: [
-        'Cherchez le service dont vous avez besoin près de chez vous.',
-        'Réservez un travailleur vérifié et convenez de la tâche.',
-        'Notez le travail et construisez la confiance pour la prochaine fois.',
+        { title: 'Cherchez', body: 'Cherchez le service dont vous avez besoin près de chez vous.' },
+        { title: 'Réservez et payez', body: 'Réservez un travailleur vérifié, convenez de la tâche et payez dans l’application : l’argent est bloqué jusqu’à la fin du travail.' },
+        { title: 'Confirmez et notez', body: 'Confirmez que le travail est fait et notez-le, pour construire la confiance la prochaine fois.' },
       ],
     },
     forEveryone: {
@@ -319,11 +359,51 @@ const fr: typeof en = {
         body: 'Touchez de nouveaux clients au-delà de votre réseau personnel et transformez un bon travail en demande régulière. Vos notes et votre historique vous suivent et vous aident à bâtir une réputation qui attire les missions.',
       },
     },
-    banner: {
-      title: 'Votre partenaire unique pour la maison',
-      subtitle: 'De l’application au confort de votre foyer.',
-      body: 'BaraLink propose une application mobile intégrée de services à domicile avec une large sélection d’experts techniques couvrant tous les aspects de l’entretien de la maison. Notre plateforme comble un manque du marché pour offrir aux utilisateurs un accès pratique à un réseau de prestataires de confiance et de qualité. Nous nous engageons à améliorer l’accessibilité et la commodité pour les consommateurs, en jouant un rôle clé dans la transformation des services à domicile.',
+    sections: {
+      howEyebrow: 'Comment ça marche',
+      audienceEyebrow: 'Pour tout le monde',
+      servicesEyebrow: 'Services',
+      servicesTitle: 'Ce que vous pouvez réserver',
+      servicesMore: 'Et bien d’autres métiers dans l’application.',
+      faqEyebrow: 'Questions',
+      faqTitle: 'Questions fréquentes',
     },
+    audiences: {
+      clientsButton: 'Trouver un travailleur',
+      workersButton: 'Devenir travailleur',
+    },
+    services: ['Plomberie', 'Électricité', 'Ménage', 'Peinture', 'Menuiserie', 'Climatisation', 'Mécanique', 'Déménagement'],
+    faq: [
+      {
+        q: 'Comment fonctionne le paiement ?',
+        a: 'Vous payez par mobile money dans l’application avant le début du travail. BaraLink garde l’argent et ne le verse au travailleur qu’une fois que vous confirmez que le travail est terminé.',
+      },
+      {
+        q: 'Comment les travailleurs sont-ils vérifiés ?',
+        a: 'Les travailleurs envoient une pièce d’identité guinéenne que notre équipe contrôle, et leur profil indique s’ils sont vérifiés. Après chaque mission, le client note le travail.',
+      },
+      {
+        q: 'Où BaraLink est-il disponible ?',
+        a: 'Nous commençons à Conakry.',
+      },
+      {
+        q: 'Et si quelque chose se passe mal ?',
+        a: 'Ouvrez un litige dans l’application : le paiement reste bloqué jusqu’à ce que notre équipe règle le problème. Vous pouvez aussi nous appeler.',
+      },
+      {
+        q: 'Comment devenir travailleur sur BaraLink ?',
+        a: 'Téléchargez l’application, inscrivez-vous comme travailleur avec votre numéro, ajoutez vos compétences et votre pièce d’identité. Une fois votre profil vérifié, vous pouvez postuler aux missions et être payé sur votre mobile money.',
+      },
+      {
+        q: 'Quels services puis-je réserver ?',
+        a: 'Plomberie, électricité, ménage, peinture, menuiserie, climatisation, mécanique, déménagement et bien d’autres.',
+      },
+    ],
+    final: {
+      title: 'Commencez avec BaraLink',
+      body: 'Téléchargez l’application, ou appelez-nous : nous vous aidons à démarrer.',
+    },
+    mobileBar: { call: 'Appeler', download: 'Télécharger' },
     contact: {
       eyebrow: 'Contact',
       heading: 'Entrons en contact',
@@ -371,8 +451,6 @@ const fr: typeof en = {
       },
     },
     footer: {
-      getStarted: 'Commencez avec BaraLink',
-      contact: 'Nous contacter',
       columns: {
         company: 'Entreprise',
         forWorkers: 'Pour les travailleurs',
@@ -388,7 +466,7 @@ const fr: typeof en = {
       workers: [
         { label: 'Devenir travailleur', href: '#for-workers' },
         { label: 'Vérification', href: '#how-it-works' },
-        { label: 'FAQ', href: '#contact' },
+        { label: 'FAQ', href: '#faq' },
       ],
       legal: 'Mentions légales',
       privacy: 'Confidentialité',

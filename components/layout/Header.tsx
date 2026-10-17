@@ -63,7 +63,7 @@ function LanguageSwitcher({ className = '' }: { className?: string }) {
   );
 }
 
-const SECTIONS = ['home', 'about', 'how-it-works', 'for-clients', 'contact'];
+const SECTIONS = ['home', 'how-it-works', 'for-clients', 'for-workers', 'about', 'faq', 'contact'];
 
 /** The section in view, so the menu shows where the visitor is. */
 function useActiveSection() {
@@ -108,11 +108,11 @@ export default function Header() {
   // Anchors of the home page: from another page (/privacy) they lead back to it.
   const onHome = (anchor: string) => `${href('/')}${anchor}`;
   const navLinks = [
-    { name: t.nav.home, id: 'home' },
-    { name: t.nav.about, id: 'about' },
     { name: t.nav.howItWorks, id: 'how-it-works' },
     { name: t.nav.forClients, id: 'for-clients' },
     { name: t.nav.forWorkers, id: 'for-workers' },
+    { name: t.nav.about, id: 'about' },
+    { name: t.nav.faq, id: 'faq' },
     { name: t.nav.contact, id: 'contact' },
   ];
   const isActive = (id: string) => active === id;

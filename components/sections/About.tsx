@@ -2,12 +2,13 @@
 
 import Image from "next/image";
 import { useI18n } from "@/lib/i18n/I18nProvider";
+import { SectionHeader } from "@/components/ui/SectionHeader";
 
 export function About() {
   const { t } = useI18n();
 
   return (
-    <section id="about" className="overflow-hidden bg-white">
+    <section id="about" className="overflow-hidden bg-slate-50">
       <div className="mx-auto max-w-7xl px-6 py-20 lg:px-8 lg:py-28">
         <div className="grid items-center gap-6 lg:grid-cols-2 lg:gap-8">
           {/* Left: the phone screenshot */}
@@ -28,13 +29,7 @@ export function About() {
 
           {/* Right: content */}
           <div className="max-w-xl lg:order-2">
-            <p className="text-sm font-medium uppercase tracking-[0.18em] text-primary">{t.about.eyebrow}</p>
-            <h2 className="mt-5 text-3xl font-semibold leading-[1.1] text-slate-950 sm:text-4xl lg:text-5xl">
-              {t.about.headline}
-            </h2>
-            <p className="mt-5 text-lg leading-8 text-slate-600">
-              {t.about.body}
-            </p>
+            <SectionHeader eyebrow={t.about.eyebrow} title={t.about.headline} intro={t.about.body} />
 
             {/* Minimal stat line */}
             <div className="mt-12 grid grid-cols-3 gap-6 border-t border-slate-200 pt-8">

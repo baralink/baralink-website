@@ -42,21 +42,6 @@ export function Footer() {
 
   return (
     <footer className="relative">
-      {/* White "Get started" CTA band */}
-      <div className="bg-white">
-        <div className="mx-auto flex max-w-7xl flex-col items-center justify-center gap-6 px-6 py-16 sm:flex-row sm:gap-8 lg:px-8">
-          <h2 className="text-center text-2xl font-semibold tracking-tight text-primary sm:text-3xl lg:text-4xl">
-            {t.footer.getStarted}
-          </h2>
-          <a
-            href={`${href('/')}#contact`}
-            className="inline-flex items-center justify-center rounded-full bg-primary px-7 py-3 text-base font-semibold text-white transition hover:bg-primary-dark"
-          >
-            {t.footer.contact}
-          </a>
-        </div>
-      </div>
-
       {/* Curved wave divider into blue */}
       <div className="relative -mb-px bg-white">
         <svg

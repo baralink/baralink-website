@@ -9,8 +9,8 @@ import { PHONES, telHref } from '@/lib/contact';
  * The red "Call" button of the sticky header: one tap opens BaraLink's numbers, each a
  * tel: link (contact_click {method: phone}).
  */
-export function CallButton({ compact = false }: { compact?: boolean }) {
-  const { t } = useI18n();
+export function CallButton({ compact = false, up = false }: { compact?: boolean; up?: boolean }) {
+  const { t, href } = useI18n();
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
@@ -44,7 +44,11 @@ export function CallButton({ compact = false }: { compact?: boolean }) {
         {t.call.button}
       </button>
       {open && (
-        <div className="absolute right-0 top-full z-50 mt-2 w-64 rounded-2xl border border-slate-200 bg-white p-2 shadow-xl">
+        <div
+          className={`absolute z-50 w-64 rounded-2xl border border-slate-200 bg-white p-2 text-left shadow-xl ${
+            up ? 'bottom-full left-1/2 mb-2 -translate-x-1/2' : 'right-0 top-full mt-2'
+          }`}
+        >
           <p className="px-3 pb-1 pt-2 text-xs font-medium uppercase tracking-wider text-slate-500">{t.call.title}</p>
           {PHONES.map((phone) => (
             <a
@@ -62,7 +66,7 @@ export function CallButton({ compact = false }: { compact?: boolean }) {
             </a>
           ))}
           <a
-            href="#contact"
+            href={`${href('/')}#contact`}
             onClick={() => setOpen(false)}
             className="mt-1 block rounded-xl px-3 py-2.5 text-sm font-medium text-primary transition hover:bg-slate-50"
           >

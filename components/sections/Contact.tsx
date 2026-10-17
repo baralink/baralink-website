@@ -1,6 +1,8 @@
 'use client';
 
+import { Mail, MapPin, Phone } from 'lucide-react';
 import { useI18n } from '@/lib/i18n/I18nProvider';
+import { SectionHeader } from '@/components/ui/SectionHeader';
 import { PHONES, SUPPORT_EMAIL, telHref } from '@/lib/contact';
 import { ContactForm } from './ContactForm';
 
@@ -8,88 +10,69 @@ export function Contact() {
   const { t } = useI18n();
 
   return (
-    <section id="contact" className="bg-white">
+    <section id="contact" aria-label={t.contact.eyebrow} className="bg-slate-50">
       <div className="mx-auto max-w-7xl px-6 py-20 lg:px-8 lg:py-24">
         <div className="grid gap-14 lg:grid-cols-2 lg:gap-20">
           {/* Left: heading + details */}
           <div>
-            <p className="text-sm font-medium uppercase tracking-[0.18em] text-primary">
-              {t.contact.eyebrow}
-            </p>
-            <h2 className="mt-5 text-3xl font-semibold leading-[1.1] text-slate-950 sm:text-4xl lg:text-5xl">
-              {t.contact.heading}
-            </h2>
-            <p className="mt-6 max-w-md text-lg leading-8 text-slate-600">
-              {t.contact.body}
-            </p>
+            <SectionHeader eyebrow={t.contact.eyebrow} title={t.contact.heading} intro={t.contact.body} />
 
-            <dl className="mt-12 grid gap-10 sm:grid-cols-3">
-              {/* Phones */}
-              <div>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6} className="h-6 w-6 text-primary">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 0 1 2-2h3.28a1 1 0 0 1 .95.68l1.5 4.5a1 1 0 0 1-.5 1.2l-2.26 1.13a11 11 0 0 0 5.52 5.52l1.13-2.26a1 1 0 0 1 1.2-.5l4.5 1.5a1 1 0 0 1 .68.95V19a2 2 0 0 1-2 2h-1C9.72 21 3 14.28 3 6V5Z" />
-                </svg>
-                <dt className="mt-4 text-sm font-medium text-slate-500">
-                  {t.contact.phoneLabel}
-                </dt>
-                <dd className="mt-2 space-y-1">
-                  {PHONES.map((p) => (
-                    <a
-                      key={p}
-                      href={telHref(p)}
-                      data-analytics="contact_click"
-                      data-method="phone"
-                      className="block text-base font-semibold text-slate-900 transition hover:text-primary"
-                    >
-                      {p}
-                    </a>
-                  ))}
-                </dd>
-              </div>
-
-              {/* Email */}
-              <div>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6} className="h-6 w-6 text-primary">
-                  <rect x="3" y="5" width="18" height="14" rx="2" />
-                  <path strokeLinecap="round" strokeLinejoin="round" d="m3 7 9 6 9-6" />
-                </svg>
-                <dt className="mt-4 text-sm font-medium text-slate-500">
-                  {t.contact.emailLabel}
-                </dt>
-                <dd className="mt-2">
+            <ul className="mt-10 space-y-4">
+              <li className="flex gap-4 rounded-2xl border border-slate-200 bg-white p-5">
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-call/10 text-call">
+                  <Phone className="h-5 w-5" aria-hidden="true" />
+                </span>
+                <div>
+                  <p className="text-sm font-medium text-slate-500">{t.contact.phoneLabel}</p>
+                  <div className="mt-1 flex flex-wrap gap-x-5 gap-y-1">
+                    {PHONES.map((p) => (
+                      <a
+                        key={p}
+                        href={telHref(p)}
+                        data-analytics="contact_click"
+                        data-method="phone"
+                        className="text-lg font-semibold text-slate-900 transition hover:text-primary"
+                      >
+                        {p}
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              </li>
+              <li className="flex gap-4 rounded-2xl border border-slate-200 bg-white p-5">
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                  <Mail className="h-5 w-5" aria-hidden="true" />
+                </span>
+                <div>
+                  <p className="text-sm font-medium text-slate-500">{t.contact.emailLabel}</p>
                   <a
                     href={`mailto:${SUPPORT_EMAIL}`}
                     data-analytics="contact_click"
                     data-method="email"
-                    className="text-base font-semibold text-slate-900 transition hover:text-primary"
+                    className="mt-1 block text-lg font-semibold text-slate-900 transition hover:text-primary"
                   >
                     {SUPPORT_EMAIL}
                   </a>
-                </dd>
-              </div>
-
-              {/* Locations / address */}
-              <div>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6} className="h-6 w-6 text-primary">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 21s-7-6-7-11a7 7 0 1 1 14 0c0 5-7 11-7 11Z" />
-                  <circle cx="12" cy="10" r="2.5" />
-                </svg>
-                <dt className="mt-4 text-sm font-medium text-slate-500">
-                  {t.contact.locationLabel}
-                </dt>
-                <dd className="mt-2 space-y-1">
+                </div>
+              </li>
+              <li className="flex gap-4 rounded-2xl border border-slate-200 bg-white p-5">
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                  <MapPin className="h-5 w-5" aria-hidden="true" />
+                </span>
+                <div>
+                  <p className="text-sm font-medium text-slate-500">{t.contact.locationLabel}</p>
                   {t.contact.locations.map((loc) => (
-                    <p key={loc} className="text-base font-semibold text-slate-900">
+                    <p key={loc} className="mt-1 text-lg font-semibold text-slate-900">
                       {loc}
                     </p>
                   ))}
-                </dd>
-              </div>
-            </dl>
+                </div>
+              </li>
+            </ul>
           </div>
 
           {/* Right: the contact form (sent to the backend, read by staff in the Admin) */}
-          <div className="rounded-3xl border border-slate-200 bg-slate-50 p-8 sm:p-10">
+          <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-[0_8px_30px_rgba(15,23,42,0.06)] sm:p-10">
             <ContactForm />
           </div>
         </div>
