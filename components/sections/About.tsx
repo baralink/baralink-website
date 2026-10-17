@@ -7,7 +7,7 @@ export function About() {
   const { t } = useI18n();
 
   return (
-    <section id="about" className="bg-white">
+    <section id="about" className="overflow-hidden bg-white">
       <div className="mx-auto max-w-7xl px-6 py-24 lg:px-8 lg:py-32">
         <div className="grid items-center gap-6 lg:grid-cols-2 lg:gap-8">
           {/* Left: the phone screenshot */}

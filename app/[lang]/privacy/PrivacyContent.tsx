@@ -5,7 +5,7 @@ import { useI18n } from '@/lib/i18n/I18nProvider';
 import { openConsentSettings } from '@/lib/analytics';
 
 export function PrivacyContent() {
-  const { t } = useI18n();
+  const { t, href } = useI18n();
   const p = t.privacy;
   return (
     <article className="mx-auto max-w-3xl px-6 py-16 lg:px-8">
@@ -31,7 +31,7 @@ export function PrivacyContent() {
           )}
         </section>
       ))}
-      <Link href="/" className="mt-12 inline-block font-medium text-primary underline underline-offset-2">
+      <Link href={href('/')} className="mt-12 inline-block font-medium text-primary underline underline-offset-2">
         {p.back}
       </Link>
     </article>

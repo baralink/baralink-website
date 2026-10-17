@@ -1,9 +1,22 @@
 import type { MetadataRoute } from 'next';
+import { LOCALES, SITE_URL, localePath } from '@/lib/i18n/locales';
 
-// Submitted in Google Search Console (analytics plan, AN-4).
+const PAGES = [
+  { path: '/', changeFrequency: 'monthly', priority: 1 },
+  { path: '/privacy', changeFrequency: 'yearly', priority: 0.3 },
+] as const;
+
+// Submitted in Google Search Console (analytics plan, AN-4). Each page in both languages,
+// each naming the other (hreflang).
 export default function sitemap(): MetadataRoute.Sitemap {
-  return [
-    { url: 'https://baralink.org', changeFrequency: 'monthly', priority: 1 },
-    { url: 'https://baralink.org/privacy', changeFrequency: 'yearly', priority: 0.3 },
-  ];
+  return PAGES.flatMap(({ path, changeFrequency, priority }) =>
+    LOCALES.map((locale) => ({
+      url: `${SITE_URL}${localePath(locale, path)}`,
+      changeFrequency,
+      priority,
+      alternates: {
+        languages: Object.fromEntries(LOCALES.map((other) => [other, `${SITE_URL}${localePath(other, path)}`])),
+      },
+    })),
+  );
 }

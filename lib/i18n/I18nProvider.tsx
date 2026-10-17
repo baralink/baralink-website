@@ -1,54 +1,42 @@
 'use client';
 
-import {
-  createContext,
-  useCallback,
-  useContext,
-  useEffect,
-  useState,
-} from 'react';
-import { dictionaries, type Dictionary, type Locale } from './dictionaries';
+import { createContext, useCallback, useContext } from 'react';
+import { usePathname, useRouter } from 'next/navigation';
+import { dictionaries, type Dictionary } from './dictionaries';
+import { LOCALE_COOKIE, localePath, switchLocalePath, type Locale } from './locales';
 
 type I18nContextValue = {
   locale: Locale;
   setLocale: (locale: Locale) => void;
+  /** A path of this site in the current language (`/privacy` → `/en/privacy`). */
+  href: (path: string) => string;
   t: Dictionary;
 };
 
 const I18nContext = createContext<I18nContextValue | null>(null);
 
-const STORAGE_KEY = 'baralink-locale';
+/**
+ * The language comes from the address (`/` French, `/en` English), so the page is rendered
+ * on the server in the right language. Changing it remembers the choice and opens the same
+ * page at the other language's address, keeping the query (a campaign code).
+ */
+export function I18nProvider({ locale, children }: { locale: Locale; children: React.ReactNode }) {
+  const router = useRouter();
+  const pathname = usePathname();
 
-function detectInitialLocale(): Locale {
-  if (typeof window === 'undefined') return 'en';
-  const stored = window.localStorage.getItem(STORAGE_KEY);
-  if (stored === 'en' || stored === 'fr') return stored;
-  const browser = (navigator.language || 'en').toLowerCase();
-  return browser.startsWith('fr') ? 'fr' : 'en';
-}
+  const setLocale = useCallback(
+    (next: Locale) => {
+      document.cookie = `${LOCALE_COOKIE}=${next}; path=/; max-age=31536000; samesite=lax`;
+      if (next === locale) return;
+      router.push(`${switchLocalePath(pathname, next)}${window.location.search}${window.location.hash}`);
+    },
+    [locale, pathname, router],
+  );
 
-export function I18nProvider({ children }: { children: React.ReactNode }) {
-  const [locale, setLocaleState] = useState<Locale>('en');
-
-  // Detect language on mount (browser preference / stored choice)
-  useEffect(() => {
-    const initial = detectInitialLocale();
-    setLocaleState(initial);
-    document.documentElement.lang = initial;
-  }, []);
-
-  const setLocale = useCallback((next: Locale) => {
-    setLocaleState(next);
-    document.documentElement.lang = next;
-    try {
-      window.localStorage.setItem(STORAGE_KEY, next);
-    } catch {
-      /* ignore storage errors */
-    }
-  }, []);
+  const href = useCallback((path: string) => localePath(locale, path), [locale]);
 
   return (
-    <I18nContext.Provider value={{ locale, setLocale, t: dictionaries[locale] }}>
+    <I18nContext.Provider value={{ locale, setLocale, href, t: dictionaries[locale] }}>
       {children}
     </I18nContext.Provider>
   );

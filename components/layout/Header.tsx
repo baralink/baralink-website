@@ -4,7 +4,8 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useI18n } from '@/lib/i18n/I18nProvider';
-import type { Locale } from '@/lib/i18n/dictionaries';
+import type { Locale } from '@/lib/i18n/locales';
+import { PHONES, telHref } from '@/lib/contact';
 
 function Flag({ locale }: { locale: Locale }) {
   if (locale === 'fr') {
@@ -36,7 +37,7 @@ function Flag({ locale }: { locale: Locale }) {
 
 function LanguageSwitcher({ className = '' }: { className?: string }) {
   const { locale, setLocale } = useI18n();
-  const options: Locale[] = ['en', 'fr'];
+  const options: Locale[] = ['fr', 'en'];
   return (
     <div
       className={`inline-flex items-center rounded-full border border-slate-200 bg-slate-50 p-0.5 text-xs font-semibold ${className}`}
@@ -61,8 +62,48 @@ function LanguageSwitcher({ className = '' }: { className?: string }) {
   );
 }
 
+function StoreBadges({ mobile = false }: { mobile?: boolean }) {
+  const size = mobile ? 'h-16' : 'h-20';
+  return (
+    <>
+      <a
+        href="#download"
+        data-analytics="download_click"
+        data-store="app_store"
+        data-placement="header"
+        aria-label="Download on the App Store"
+        className="inline-block transition-transform duration-300 hover:scale-105 active:scale-95"
+      >
+        <Image
+          src="/assets/social/appleStore.png"
+          alt="Download on the App Store"
+          width={800}
+          height={800}
+          className={`${size} w-auto object-contain`}
+        />
+      </a>
+      <a
+        href="#download"
+        data-analytics="download_click"
+        data-store="play"
+        data-placement="header"
+        aria-label="Get it on Google Play"
+        className="inline-block transition-transform duration-300 hover:scale-105 active:scale-95"
+      >
+        <Image
+          src="/assets/social/googlePlay.png"
+          alt="Get it on Google Play"
+          width={800}
+          height={800}
+          className={`${size} w-auto object-contain`}
+        />
+      </a>
+    </>
+  );
+}
+
 export default function Header() {
-  const { t } = useI18n();
+  const { t, href } = useI18n();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   // Lock body scrolling when mobile drawer is open
@@ -86,46 +127,6 @@ export default function Header() {
     { name: t.nav.contact, href: '#contact' },
   ];
 
-  function StoreBadges({ mobile = false }: { mobile?: boolean }) {
-    const size = mobile ? 'h-16' : 'h-20';
-    return (
-      <>
-        <a
-          href="#download"
-          data-analytics="download_click"
-          data-store="app_store"
-          data-placement="header"
-          aria-label="Download on the App Store"
-          className="inline-block transition-transform duration-300 hover:scale-105 active:scale-95"
-        >
-          <Image
-            src="/assets/social/appleStore.png"
-            alt="Download on the App Store"
-            width={800}
-            height={800}
-            className={`${size} w-auto object-contain`}
-          />
-        </a>
-        <a
-          href="#download"
-          data-analytics="download_click"
-          data-store="play"
-          data-placement="header"
-          aria-label="Get it on Google Play"
-          className="inline-block transition-transform duration-300 hover:scale-105 active:scale-95"
-        >
-          <Image
-            src="/assets/social/googlePlay.png"
-            alt="Get it on Google Play"
-            width={800}
-            height={800}
-            className={`${size} w-auto object-contain`}
-          />
-        </a>
-      </>
-    );
-  }
-
   return (
     <div className="sticky top-0 z-50 w-full shadow-sm">
       {/* Top Announcement Bar */}
@@ -141,7 +142,7 @@ export default function Header() {
           </div>
           <div className="shrink-0 flex items-center text-white/90">
             <a 
-              href="tel:+18005550199"
+              href={telHref(PHONES[0])}
               data-analytics="contact_click"
               data-method="phone"
               className="hover:text-white transition-colors flex items-center gap-1.5 font-semibold text-xs sm:text-sm"
@@ -154,7 +155,7 @@ export default function Header() {
                   d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" 
                 />
               </svg>
-              <span className="hidden sm:inline">+1 (800) 555-0199</span>
+              <span className="hidden sm:inline">{PHONES[0]}</span>
               <span className="sm:hidden">{t.callUs}</span>
             </a>
           </div>
@@ -168,7 +169,7 @@ export default function Header() {
             
             {/* Logo */}
             <div className="flex-shrink-0">
-              <Link href="/" className="flex items-center group">
+              <Link href={href('/')} className="flex items-center group">
                 <div className="relative">
                   <Image
                     src="/logos/BaraLink-Logo-white.png"

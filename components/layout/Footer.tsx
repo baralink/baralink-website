@@ -34,7 +34,7 @@ const socials = [
 ];
 
 export function Footer() {
-  const { t } = useI18n();
+  const { t, href } = useI18n();
   const footerLinks = {
     [t.footer.columns.company]: t.footer.company,
     [t.footer.columns.forWorkers]: t.footer.workers,
@@ -148,7 +148,7 @@ export function Footer() {
               <a href="#" className="transition hover:text-accent">
                 {t.footer.legal}
               </a>
-              <Link href="/privacy" className="transition hover:text-accent">
+              <Link href={href('/privacy')} className="transition hover:text-accent">
                 {t.footer.privacy}
               </Link>
               {/* Reopens the usage-statistics choice (analytics plan AN-5). */}

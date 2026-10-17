@@ -1,8 +1,8 @@
 'use client';
 
 import { useI18n } from '@/lib/i18n/I18nProvider';
-
-const phones = ['+224 622 46 25 59', '+224 623 04 34 21'];
+import { PHONES, SUPPORT_EMAIL, telHref } from '@/lib/contact';
+import { ContactForm } from './ContactForm';
 
 export function Contact() {
   const { t } = useI18n();
@@ -33,10 +33,10 @@ export function Contact() {
                   {t.contact.phoneLabel}
                 </dt>
                 <dd className="mt-2 space-y-1">
-                  {phones.map((p) => (
+                  {PHONES.map((p) => (
                     <a
                       key={p}
-                      href={`tel:${p.replace(/\s/g, '')}`}
+                      href={telHref(p)}
                       data-analytics="contact_click"
                       data-method="phone"
                       className="block text-base font-semibold text-slate-900 transition hover:text-primary"
@@ -58,12 +58,12 @@ export function Contact() {
                 </dt>
                 <dd className="mt-2">
                   <a
-                    href={`mailto:${t.contact.email}`}
+                    href={`mailto:${SUPPORT_EMAIL}`}
                     data-analytics="contact_click"
                     data-method="email"
                     className="text-base font-semibold text-slate-900 transition hover:text-primary"
                   >
-                    {t.contact.email}
+                    {SUPPORT_EMAIL}
                   </a>
                 </dd>
               </div>
@@ -88,52 +88,9 @@ export function Contact() {
             </dl>
           </div>
 
-          {/* Right: simple contact form */}
+          {/* Right: the contact form (sent to the backend, read by staff in the Admin) */}
           <div className="rounded-3xl border border-slate-200 bg-slate-50 p-8 sm:p-10">
-            <form
-              className="space-y-5"
-              onSubmit={(e) => e.preventDefault()}
-            >
-              <div>
-                <label htmlFor="contact-name" className="sr-only">
-                  {t.contact.formName}
-                </label>
-                <input
-                  id="contact-name"
-                  type="text"
-                  placeholder={t.contact.formName}
-                  className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-base text-slate-900 placeholder-slate-400 outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/20"
-                />
-              </div>
-              <div>
-                <label htmlFor="contact-email" className="sr-only">
-                  {t.contact.formEmail}
-                </label>
-                <input
-                  id="contact-email"
-                  type="email"
-                  placeholder={t.contact.formEmail}
-                  className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-base text-slate-900 placeholder-slate-400 outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/20"
-                />
-              </div>
-              <div>
-                <label htmlFor="contact-message" className="sr-only">
-                  {t.contact.formMessage}
-                </label>
-                <textarea
-                  id="contact-message"
-                  rows={5}
-                  placeholder={t.contact.formMessage}
-                  className="w-full resize-none rounded-xl border border-slate-200 bg-white px-4 py-3 text-base text-slate-900 placeholder-slate-400 outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/20"
-                />
-              </div>
-              <button
-                type="submit"
-                className="inline-flex w-full items-center justify-center rounded-full bg-primary px-7 py-3 text-base font-semibold text-white transition hover:bg-primary-dark"
-              >
-                {t.contact.formSend}
-              </button>
-            </form>
+            <ContactForm />
           </div>
         </div>
       </div>

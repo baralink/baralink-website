@@ -76,8 +76,11 @@ export function applyConsent(choice: ConsentChoice) {
   gtag('consent', 'update', { analytics_storage: choice });
 }
 
-/** Send one of the plan's website events (§4.2). Ignored unless the visitor accepted. */
-export function track(event: 'download_click' | 'contact_click' | 'social_click', params: Record<string, string>) {
+/** Send one of the plan's website events (§4.2; contact_submit carries the topic only). Ignored unless the visitor accepted. */
+export function track(
+  event: 'download_click' | 'contact_click' | 'social_click' | 'contact_submit',
+  params: Record<string, string>,
+) {
   if (!GTM_ID || readConsent() !== 'granted') return;
   window.dataLayer = window.dataLayer || [];
   window.dataLayer.push({ event, ...params });

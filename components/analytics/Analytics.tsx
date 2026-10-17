@@ -47,7 +47,7 @@ function onClick(event: MouseEvent) {
 }
 
 export function Analytics() {
-  const { t } = useI18n();
+  const { t, href } = useI18n();
   // undefined while rendering on the server: the banner is decided in the browser only.
   const choice = useSyncExternalStore(subscribeToStore, readConsent, () => undefined);
   const [reopened, setReopened] = useState(false);
@@ -96,7 +96,7 @@ export function Analytics() {
           </p>
           <p id="consent-body" className="mt-1 leading-6">
             {t.consent.body}{' '}
-            <Link href="/privacy#analytics" className="font-medium text-primary underline underline-offset-2">
+            <Link href={href('/privacy#analytics')} className="font-medium text-primary underline underline-offset-2">
               {t.consent.privacyLink}
             </Link>
           </p>
