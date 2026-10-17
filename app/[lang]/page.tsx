@@ -8,6 +8,7 @@ import { HowItWorks } from "@/components/sections/HowItWorks";
 import { ForEveryone } from "@/components/sections/ForEveryone";
 import { Contact } from "@/components/sections/Contact";
 import { BannerCTA } from "@/components/sections/BannerCTA";
+import { QuickActions } from "@/components/sections/QuickActions";
 import { dictionaries } from "@/lib/i18n/dictionaries";
 import { SITE_URL, alternatesFor, hasLocale } from "@/lib/i18n/locales";
 import { PHONES } from "@/lib/contact";
@@ -84,6 +85,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
       <Header />
       <main>
         <Hero />
+        <QuickActions />
         <About />
         <HowItWorks />
         <ForEveryone />

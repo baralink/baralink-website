@@ -10,6 +10,10 @@
 
   --color-accent: #f5c518;
   --color-accent-dark: #d4a900;
+
+  /* The Call button: red, so it is found at a glance on every screen */
+  --color-call: #e30613;
+  --color-call-dark: #b8050f;
 }
 
 @theme inline {
@@ -22,10 +26,14 @@
   --color-primary-dark: var(--color-primary-dark);
   --color-accent: var(--color-accent);
   --color-accent-dark: var(--color-accent-dark);
+  --color-call: var(--color-call);
+  --color-call-dark: var(--color-call-dark);
 }
 
 html {
   scroll-behavior: smooth;
+  /* Anchored sections stop below the sticky header */
+  scroll-padding-top: 112px;
 }
 
 body {

@@ -38,7 +38,7 @@ export function ForEveryone() {
 
   return (
     <section id="for-clients" className="bg-white">
-      <div className="mx-auto max-w-7xl px-6 py-20 lg:px-8 lg:py-24">
+      <div className="mx-auto max-w-7xl px-6 py-16 lg:px-8 lg:py-20">
       <span id="for-workers" className="relative -top-24 block" aria-hidden="true" />
 
       {/* Title + switch tabs */}
@@ -84,21 +84,22 @@ export function ForEveryone() {
                 className="object-cover"
               />
 
-              {/* Text overlaid on the left */}
-              <div className="relative z-10 flex h-full max-w-[55%] flex-col justify-center px-5 text-white sm:max-w-md sm:px-10 lg:px-14">
-                <h3 className="text-base font-extrabold leading-[1.1] sm:text-3xl lg:text-5xl">
-                  {slide.title}
-                </h3>
-                <p className="mt-1 text-xs font-medium text-white/85 sm:mt-3 sm:text-lg lg:text-xl">
-                  {slide.subtitle}
-                </p>
-                <p className="mt-2 hidden text-sm leading-6 text-white/75 sm:mt-4 sm:block sm:text-base sm:leading-7">
-                  {slide.body}
-                </p>
+              {/* Text overlaid on the left (from tablet width; on phones it is below) */}
+              <div className="relative z-10 hidden h-full max-w-md flex-col justify-center px-10 text-white sm:flex lg:px-14">
+                <h3 className="text-3xl font-extrabold leading-[1.1] lg:text-5xl">{slide.title}</h3>
+                <p className="mt-3 text-lg font-medium text-white/85 lg:text-xl">{slide.subtitle}</p>
+                <p className="mt-4 text-base leading-7 text-white/75">{slide.body}</p>
               </div>
             </div>
           ))}
         </div>
+      </div>
+
+      {/* Phones: the text of the slide shown, under the picture */}
+      <div className="mx-auto mt-6 max-w-md text-center sm:hidden" aria-live="polite">
+        <h3 className="text-2xl font-bold leading-tight text-slate-950">{slides[active].title}</h3>
+        <p className="mt-2 text-base font-medium text-primary">{slides[active].subtitle}</p>
+        <p className="mt-3 text-base leading-7 text-slate-600">{slides[active].body}</p>
       </div>
 
       {/* Dot indicators — centered, outside the image */}

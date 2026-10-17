@@ -2,7 +2,9 @@
 
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
+import { BadgeCheck, ShieldCheck, Star } from 'lucide-react';
 import { useI18n } from '@/lib/i18n/I18nProvider';
+import { StoreBadges } from '@/components/ui/StoreBadges';
 
 const slides = ['/logos/bg.png', '/logos/hero2.png'];
 
@@ -26,7 +28,7 @@ export function Hero() {
           <Image
             key={src}
             src={src}
-            alt="BaraLink local service in action"
+            alt=""
             fill
             priority={i === 0}
             sizes="100vw"
@@ -44,7 +46,7 @@ export function Hero() {
 
         {/* Hero content, left-aligned */}
         <div className="mx-auto flex min-h-[560px] max-w-7xl items-center px-6 lg:min-h-[640px] lg:px-8">
-          <div className="max-w-2xl py-20 text-white">
+          <div className="max-w-2xl pb-28 pt-16 text-white lg:pb-32">
             <h1 className="text-4xl font-semibold leading-[1.08] tracking-tight sm:text-5xl lg:text-6xl">
               {t.hero.titleLine1}
               <br className="hidden sm:block" /> {t.hero.titleLine2}
@@ -58,22 +60,37 @@ export function Hero() {
                 data-analytics="download_click"
                 data-store="any"
                 data-placement="hero"
-                className="inline-flex items-center justify-center rounded-full bg-accent px-7 py-3 text-base font-semibold text-slate-950 transition hover:bg-accent-dark"
+                className="inline-flex min-h-12 items-center justify-center rounded-full bg-accent px-7 py-3 text-base font-semibold text-slate-950 transition hover:bg-accent-dark"
               >
                 {t.hero.download}
               </a>
               <a
                 href="#how-it-works"
-                className="inline-flex items-center justify-center rounded-full bg-white px-7 py-3 text-base font-semibold text-slate-950 transition hover:bg-white/90"
+                className="inline-flex min-h-12 items-center justify-center rounded-full bg-white px-7 py-3 text-base font-semibold text-slate-950 transition hover:bg-white/90"
               >
                 {t.hero.howItWorks}
               </a>
+            </div>
+
+            {/* Why people can trust it: what the app really does */}
+            <ul className="mt-8 flex flex-wrap gap-x-6 gap-y-3 text-sm font-medium text-white/90">
+              {[BadgeCheck, ShieldCheck, Star].map((Icon, i) => (
+                <li key={t.hero.trust[i]} className="flex items-center gap-2">
+                  <Icon className="h-5 w-5 text-accent" aria-hidden="true" />
+                  {t.hero.trust[i]}
+                </li>
+              ))}
+            </ul>
+
+            <div id="download" className="mt-8 scroll-mt-40">
+              <p className="mb-3 text-xs font-medium uppercase tracking-[0.18em] text-white/60">{t.hero.stores}</p>
+              <StoreBadges placement="hero" />
             </div>
           </div>
         </div>
 
         {/* Slide indicators */}
-        <div className="absolute bottom-6 left-1/2 z-10 flex -translate-x-1/2 items-center gap-2.5">
+        <div className="absolute bottom-16 left-1/2 z-10 flex -translate-x-1/2 items-center gap-2.5">
           {slides.map((src, i) => (
             <button
               key={src}

@@ -49,10 +49,7 @@ export function Footer() {
             {t.footer.getStarted}
           </h2>
           <a
-            href="#download"
-            data-analytics="download_click"
-            data-store="any"
-            data-placement="footer"
+            href={`${href('/')}#contact`}
             className="inline-flex items-center justify-center rounded-full bg-primary px-7 py-3 text-base font-semibold text-white transition hover:bg-primary-dark"
           >
             {t.footer.contact}
@@ -94,7 +91,7 @@ export function Footer() {
                   {links.map((link) => (
                     <li key={link.label}>
                       <a
-                        href={link.href}
+                        href={link.href.startsWith('#') ? `${href('/')}${link.href}` : link.href}
                         className="transition hover:text-accent"
                       >
                         {link.label}

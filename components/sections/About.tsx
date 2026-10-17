@@ -8,7 +8,7 @@ export function About() {
 
   return (
     <section id="about" className="overflow-hidden bg-white">
-      <div className="mx-auto max-w-7xl px-6 py-24 lg:px-8 lg:py-32">
+      <div className="mx-auto max-w-7xl px-6 py-20 lg:px-8 lg:py-28">
         <div className="grid items-center gap-6 lg:grid-cols-2 lg:gap-8">
           {/* Left: the phone screenshot */}
           <div className="relative flex justify-center lg:order-1 lg:justify-start">
@@ -28,12 +28,10 @@ export function About() {
 
           {/* Right: content */}
           <div className="max-w-xl lg:order-2">
-            <h2 className="text-5xl font-extrabold uppercase tracking-tight text-primary sm:text-6xl lg:text-7xl">
-              {t.about.eyebrow}
-            </h2>
-            <p className="mt-6 text-2xl font-semibold leading-tight text-slate-950 sm:text-3xl">
+            <p className="text-sm font-medium uppercase tracking-[0.18em] text-primary">{t.about.eyebrow}</p>
+            <h2 className="mt-5 text-3xl font-semibold leading-[1.1] text-slate-950 sm:text-4xl lg:text-5xl">
               {t.about.headline}
-            </p>
+            </h2>
             <p className="mt-5 text-lg leading-8 text-slate-600">
               {t.about.body}
             </p>

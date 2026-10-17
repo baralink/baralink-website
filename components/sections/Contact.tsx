@@ -9,7 +9,7 @@ export function Contact() {
 
   return (
     <section id="contact" className="bg-white">
-      <div className="mx-auto max-w-7xl px-6 py-24 lg:px-8 lg:py-32">
+      <div className="mx-auto max-w-7xl px-6 py-20 lg:px-8 lg:py-24">
         <div className="grid gap-14 lg:grid-cols-2 lg:gap-20">
           {/* Left: heading + details */}
           <div>

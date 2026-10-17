@@ -19,6 +19,21 @@ const en = {
       forClients: 'For Clients',
       forWorkers: 'For Workers',
       contact: 'Contact Us',
+      menu: 'Menu',
+    },
+    call: {
+      button: 'Call',
+      title: 'Call BaraLink',
+      write: 'Or write to us →',
+    },
+    quick: {
+      title: 'What would you like to do?',
+      items: [
+        { title: 'Find a worker', body: 'Verified help near you, in minutes.' },
+        { title: 'Work with BaraLink', body: 'More clients, a reputation you own.' },
+        { title: 'Business account', body: 'Your company hires through BaraLink.' },
+        { title: 'Partner with us', body: 'Partnerships, sponsorship, press.' },
+      ],
     },
     announcement:
       '🎉 Welcome to BaraLink! The new mobile app is now available for download.',
@@ -30,6 +45,8 @@ const en = {
         'Book verified workers in Guinea for repairs, cleaning, delivery and everyday home services.',
       download: 'Download the app',
       howItWorks: 'See how it works',
+      trust: ['Verified workers', 'Payment held until the job is done', 'Rated by real clients'],
+      stores: 'Get the app',
     },
     about: {
       eyebrow: 'About Us',
@@ -238,6 +255,21 @@ const fr: typeof en = {
       forClients: 'Pour les clients',
       forWorkers: 'Pour les travailleurs',
       contact: 'Contact',
+      menu: 'Menu',
+    },
+    call: {
+      button: 'Appeler',
+      title: 'Appeler BaraLink',
+      write: 'Ou écrivez-nous →',
+    },
+    quick: {
+      title: 'Que souhaitez-vous faire ?',
+      items: [
+        { title: 'Trouver un travailleur', body: 'De l’aide vérifiée près de chez vous, en quelques minutes.' },
+        { title: 'Travailler avec BaraLink', body: 'Plus de clients, une réputation qui vous appartient.' },
+        { title: 'Compte entreprise', body: 'Votre entreprise recrute avec BaraLink.' },
+        { title: 'Devenir partenaire', body: 'Partenariats, sponsoring, presse.' },
+      ],
     },
     announcement:
       '🎉 Bienvenue sur BaraLink ! La nouvelle application mobile est maintenant disponible au téléchargement.',
@@ -249,6 +281,8 @@ const fr: typeof en = {
         'Réservez des travailleurs vérifiés en Guinée pour vos réparations, le ménage, la livraison et tous vos services à domicile.',
       download: 'Télécharger l’app',
       howItWorks: 'Voir comment ça marche',
+      trust: ['Travailleurs vérifiés', 'Paiement bloqué jusqu’à la fin du travail', 'Notés par de vrais clients'],
+      stores: 'Téléchargez l’application',
     },
     about: {
       eyebrow: 'À propos',

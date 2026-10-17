@@ -23,3 +23,6 @@ export type ContactTopic = (typeof CONTACT_TOPICS)[number];
 export function telHref(phone: string) {
   return `tel:${phone.replace(/\s/g, '')}`;
 }
+
+/** Sent by a "Business account" or "Partnership" shortcut: the form opens on that topic. */
+export const CONTACT_TOPIC_EVENT = 'baralink:contact-topic';

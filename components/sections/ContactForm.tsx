@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState, type FormEvent } from 'react';
 import { useI18n } from '@/lib/i18n/I18nProvider';
-import { API_URL, CONTACT_TOPICS, type ContactTopic } from '@/lib/contact';
+import { API_URL, CONTACT_TOPICS, CONTACT_TOPIC_EVENT, type ContactTopic } from '@/lib/contact';
 import { track } from '@/lib/analytics';
 
 type Field = 'topic' | 'name' | 'email' | 'phone' | 'message';
@@ -35,6 +35,18 @@ export function ContactForm() {
   useEffect(() => {
     if (state === 'sent') sentRef.current?.focus();
   }, [state]);
+
+  useEffect(() => {
+    const choose = (event: Event) => {
+      const chosen = (event as CustomEvent<string>).detail;
+      if ((CONTACT_TOPICS as readonly string[]).includes(chosen)) {
+        setTopic(chosen as ContactTopic);
+        setState('idle');
+      }
+    };
+    window.addEventListener(CONTACT_TOPIC_EVENT, choose);
+    return () => window.removeEventListener(CONTACT_TOPIC_EVENT, choose);
+  }, []);
 
   function check(data: Record<string, string>): Errors {
     const found: Errors = {};
