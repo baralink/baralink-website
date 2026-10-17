@@ -37,6 +37,8 @@ export function Contact() {
                     <a
                       key={p}
                       href={`tel:${p.replace(/\s/g, '')}`}
+                      data-analytics="contact_click"
+                      data-method="phone"
                       className="block text-base font-semibold text-slate-900 transition hover:text-primary"
                     >
                       {p}
@@ -57,6 +59,8 @@ export function Contact() {
                 <dd className="mt-2">
                   <a
                     href={`mailto:${t.contact.email}`}
+                    data-analytics="contact_click"
+                    data-method="email"
                     className="text-base font-semibold text-slate-900 transition hover:text-primary"
                   >
                     {t.contact.email}

@@ -1,7 +1,9 @@
 'use client';
 
 import Image from "next/image";
+import Link from "next/link";
 import { useI18n } from "@/lib/i18n/I18nProvider";
+import { openConsentSettings } from "@/lib/analytics";
 
 const socials = [
   {
@@ -48,6 +50,9 @@ export function Footer() {
           </h2>
           <a
             href="#download"
+            data-analytics="download_click"
+            data-store="any"
+            data-placement="footer"
             className="inline-flex items-center justify-center rounded-full bg-primary px-7 py-3 text-base font-semibold text-white transition hover:bg-primary-dark"
           >
             {t.footer.contact}
@@ -110,6 +115,8 @@ export function Footer() {
                     key={s.label}
                     href={s.href}
                     aria-label={s.label}
+                    data-analytics="social_click"
+                    data-network={s.label.toLowerCase()}
                     className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 transition hover:bg-white hover:text-primary"
                   >
                     <svg
@@ -141,12 +148,13 @@ export function Footer() {
               <a href="#" className="transition hover:text-accent">
                 {t.footer.legal}
               </a>
-              <a href="#" className="transition hover:text-accent">
+              <Link href="/privacy" className="transition hover:text-accent">
                 {t.footer.privacy}
-              </a>
-              <a href="#" className="transition hover:text-accent">
+              </Link>
+              {/* Reopens the usage-statistics choice (analytics plan AN-5). */}
+              <button type="button" onClick={openConsentSettings} className="transition hover:text-accent">
                 {t.footer.cookies}
-              </a>
+              </button>
               <span className="text-white/60">
                 © {new Date().getFullYear()} BaraLink. {t.footer.rights}
               </span>

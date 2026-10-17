@@ -55,6 +55,9 @@ export function Hero() {
             <div className="mt-9 flex flex-col items-stretch gap-4 sm:flex-row sm:items-center">
               <a
                 href="#download"
+                data-analytics="download_click"
+                data-store="any"
+                data-placement="hero"
                 className="inline-flex items-center justify-center rounded-full bg-accent px-7 py-3 text-base font-semibold text-slate-950 transition hover:bg-accent-dark"
               >
                 {t.hero.download}

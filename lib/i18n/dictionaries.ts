@@ -99,6 +99,75 @@ const en = {
       cookies: 'Cookie Notice',
       rights: 'All rights reserved.',
     },
+    consent: {
+      title: 'Usage statistics',
+      body: 'With your permission, we use Google Analytics to count visits and see which pages help people find BaraLink. Nothing is collected until you choose.',
+      accept: 'Accept',
+      refuse: 'Refuse',
+      privacyLink: 'How we use them',
+      currentlyAccepted: 'Your current choice: accepted. You can change it at any time.',
+      currentlyRefused: 'Your current choice: refused. You can change it at any time.',
+    },
+    invitation: {
+      yourCode: 'Your invitation code:',
+      enterIt: 'enter it in the app when you sign up.',
+      close: 'Close',
+    },
+    privacy: {
+      // DRAFT — analytics plan AN-11: to be approved by BaraLink and reviewed by a lawyer
+      // (Guinea, Loi L/2016/037/AN; GDPR for users in Europe) before this page is published.
+      title: 'Privacy policy',
+      updated: 'Last updated: 17 October 2026',
+      intro: 'Your privacy matters to us. This page explains what BaraLink collects, why, who it is shared with, and the choices you have.',
+      sections: [
+        {
+          id: 'collected',
+          title: 'What we collect',
+          body: [
+            'Your name, phone number, email address, location and profile photo, so that the app works: creating your account, matching clients and workers, and confirming your phone number by SMS.',
+            'For workers, the identity document sent for verification. For payments, what the payment provider returns about each payment and payout.',
+          ],
+        },
+        {
+          id: 'use',
+          title: 'How we use it',
+          body: [
+            'To create your profile, connect you with the people you work with, take and send payments, keep the service safe, and improve it.',
+          ],
+        },
+        {
+          id: 'sharing',
+          title: 'Who it is shared with',
+          body: [
+            'We never sell your data. Your information is shared with the users you deal with on BaraLink, and with the providers that run the service for us: payments (LengoPay), SMS (Nimba SMS), email (Resend), file storage (Cloudinary), hosting (Railway) and, if you allow it, usage statistics (Google).',
+          ],
+        },
+        {
+          id: 'analytics',
+          title: 'Usage statistics (Google Analytics and Firebase)',
+          body: [
+            'On this website, Google Analytics is loaded only after you click "Accept". It then counts visits, the pages seen and clicks on the download, contact and social buttons, and stores cookies (for example _ga) in your browser. If you click "Refuse", nothing is loaded. You can change your choice at any time with the "Cookies" link at the bottom of every page.',
+            'In the app, Google Analytics for Firebase is used only if you answer "Allow" to the usage-statistics question. The app then sends which screens are used and the main steps (sign-up, posting a job, applying, paying). It identifies you with a random number, never your name, phone number or account number. You can withdraw at any time in Settings → Privacy.',
+            'We use no advertising features: no ad personalisation, no Google signals. Statistics are kept 14 months. Google may process them outside Guinea, including in the United States.',
+          ],
+        },
+        {
+          id: 'retention',
+          title: 'How long we keep it',
+          body: [
+            'As long as your account is open, then for the time the law requires for payment records. You can delete your account from the app, and ask our support to delete the usage statistics linked to it.',
+          ],
+        },
+        {
+          id: 'rights',
+          title: 'Your rights',
+          body: [
+            'You can ask to see, correct or delete your data, and withdraw a consent you gave, by contacting our support from the app.',
+          ],
+        },
+      ],
+      back: 'Back to the home page',
+    },
 };
 
 const fr: typeof en = {
@@ -199,6 +268,73 @@ const fr: typeof en = {
       privacy: 'Confidentialité',
       cookies: 'Cookies',
       rights: 'Tous droits réservés.',
+    },
+    consent: {
+      title: 'Statistiques de visite',
+      body: 'Avec votre accord, nous utilisons Google Analytics pour compter les visites et voir quelles pages aident à découvrir BaraLink. Rien n’est collecté avant votre choix.',
+      accept: 'Accepter',
+      refuse: 'Refuser',
+      privacyLink: 'À quoi elles servent',
+      currentlyAccepted: 'Votre choix actuel : accepté. Vous pouvez le changer à tout moment.',
+      currentlyRefused: 'Votre choix actuel : refusé. Vous pouvez le changer à tout moment.',
+    },
+    invitation: {
+      yourCode: 'Votre code d’invitation :',
+      enterIt: 'saisissez-le dans l’application lors de votre inscription.',
+      close: 'Fermer',
+    },
+    privacy: {
+      title: 'Politique de confidentialité',
+      updated: 'Dernière mise à jour : 17 octobre 2026',
+      intro: 'Votre vie privée est importante pour nous. Cette page explique ce que BaraLink collecte, pourquoi, avec qui c’est partagé et les choix dont vous disposez.',
+      sections: [
+        {
+          id: 'collected',
+          title: 'Données collectées',
+          body: [
+            'Votre nom, numéro de téléphone, adresse email, localisation et photo de profil, pour le fonctionnement de l’application : créer votre compte, mettre en relation clients et prestataires, et confirmer votre numéro par SMS.',
+            'Pour les prestataires, la pièce d’identité envoyée pour la vérification. Pour les paiements, ce que le prestataire de paiement renvoie sur chaque paiement et chaque versement.',
+          ],
+        },
+        {
+          id: 'use',
+          title: 'Utilisation',
+          body: [
+            'Créer votre profil, vous mettre en relation avec les personnes avec qui vous travaillez, encaisser et verser les paiements, protéger le service et l’améliorer.',
+          ],
+        },
+        {
+          id: 'sharing',
+          title: 'Partage',
+          body: [
+            'Nous ne vendons jamais vos données. Vos informations sont partagées avec les utilisateurs avec qui vous interagissez sur BaraLink, et avec les prestataires qui font fonctionner le service : paiements (LengoPay), SMS (Nimba SMS), email (Resend), stockage de fichiers (Cloudinary), hébergement (Railway) et, si vous l’acceptez, statistiques d’utilisation (Google).',
+          ],
+        },
+        {
+          id: 'analytics',
+          title: 'Statistiques d’utilisation (Google Analytics et Firebase)',
+          body: [
+            'Sur ce site, Google Analytics n’est chargé qu’après un clic sur « Accepter ». Il compte alors les visites, les pages vues et les clics sur les boutons de téléchargement, de contact et des réseaux sociaux, et dépose des cookies (par exemple _ga) dans votre navigateur. Si vous cliquez sur « Refuser », rien n’est chargé. Vous pouvez changer d’avis à tout moment avec le lien « Cookies » en bas de chaque page.',
+            'Dans l’application, Google Analytics pour Firebase n’est utilisé que si vous répondez « Autoriser » à la question sur les statistiques. L’application envoie alors les écrans utilisés et les étapes principales (inscription, publication d’une mission, candidature, paiement). Elle vous identifie par un numéro aléatoire, jamais par votre nom, votre téléphone ou votre numéro de compte. Vous pouvez retirer votre accord à tout moment dans Paramètres → Confidentialité.',
+            'Nous n’utilisons aucune fonction publicitaire : ni personnalisation des annonces, ni signaux Google. Les statistiques sont conservées 14 mois. Google peut les traiter hors de Guinée, notamment aux États-Unis.',
+          ],
+        },
+        {
+          id: 'retention',
+          title: 'Durée de conservation',
+          body: [
+            'Tant que votre compte est ouvert, puis pendant la durée que la loi impose pour les traces de paiement. Vous pouvez supprimer votre compte depuis l’application, et demander à notre support de supprimer les statistiques qui y sont liées.',
+          ],
+        },
+        {
+          id: 'rights',
+          title: 'Vos droits',
+          body: [
+            'Vous pouvez demander à consulter, corriger ou supprimer vos données, et retirer un accord donné, en contactant notre support depuis l’application.',
+          ],
+        },
+      ],
+      back: 'Retour à l’accueil',
     },
 };
 

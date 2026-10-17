@@ -92,6 +92,9 @@ export default function Header() {
       <>
         <a
           href="#download"
+          data-analytics="download_click"
+          data-store="app_store"
+          data-placement="header"
           aria-label="Download on the App Store"
           className="inline-block transition-transform duration-300 hover:scale-105 active:scale-95"
         >
@@ -105,6 +108,9 @@ export default function Header() {
         </a>
         <a
           href="#download"
+          data-analytics="download_click"
+          data-store="play"
+          data-placement="header"
           aria-label="Get it on Google Play"
           className="inline-block transition-transform duration-300 hover:scale-105 active:scale-95"
         >
@@ -135,7 +141,9 @@ export default function Header() {
           </div>
           <div className="shrink-0 flex items-center text-white/90">
             <a 
-              href="tel:+18005550199" 
+              href="tel:+18005550199"
+              data-analytics="contact_click"
+              data-method="phone"
               className="hover:text-white transition-colors flex items-center gap-1.5 font-semibold text-xs sm:text-sm"
             >
               <svg className="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
