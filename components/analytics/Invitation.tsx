@@ -23,8 +23,7 @@ export function Invitation() {
 
   useEffect(() => {
     const found = readInvitation(window.location.search);
-    if (!found) return;
-    document.querySelectorAll<HTMLAnchorElement>('a[data-store]').forEach((anchor) => {
+    document.querySelectorAll<HTMLAnchorElement>('a[data-store="play"], a[data-store="app_store"]').forEach((anchor) => {
       const href = storeHref(anchor.dataset.store === 'play' ? 'play' : 'app_store', found);
       if (href !== '#download') anchor.href = href;
     });
