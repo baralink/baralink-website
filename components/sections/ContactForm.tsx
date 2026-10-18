@@ -154,24 +154,38 @@ export function ContactForm() {
         <label htmlFor="contact-topic" className={labelClass}>
           {f.topicLabel}
         </label>
-        <select
-          id="contact-topic"
-          name="topic"
-          value={topic}
-          onChange={(e) => setTopic(e.target.value as ContactTopic | '')}
-          aria-invalid={Boolean(errors.topic)}
-          aria-describedby={describedBy('topic')}
-          className={`${inputClass} appearance-none`}
-        >
-          <option value="" disabled>
-            {f.topicPlaceholder}
-          </option>
-          {CONTACT_TOPICS.map((value) => (
-            <option key={value} value={value}>
-              {f.topics[value]}
+        <div className="relative">
+          <select
+            id="contact-topic"
+            name="topic"
+            value={topic}
+            onChange={(e) => setTopic(e.target.value as ContactTopic | '')}
+            aria-invalid={Boolean(errors.topic)}
+            aria-describedby={describedBy('topic')}
+            className={`${inputClass} appearance-none pr-10`}
+          >
+            <option value="" disabled>
+              {f.topicPlaceholder}
             </option>
-          ))}
-        </select>
+            {CONTACT_TOPICS.map((value) => (
+              <option key={value} value={value}>
+                {f.topics[value]}
+              </option>
+            ))}
+          </select>
+          <svg
+            className="pointer-events-none absolute right-3.5 top-1/2 h-5 w-5 -translate-y-1/2 text-slate-400"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            aria-hidden="true"
+          >
+            <path
+              fillRule="evenodd"
+              d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
+              clipRule="evenodd"
+            />
+          </svg>
+        </div>
         {errorText('topic')}
         {topic === 'complaint' && (
           <p className="mt-2 rounded-xl bg-amber-50 px-4 py-3 text-sm leading-6 text-amber-900">{f.complaintHint}</p>

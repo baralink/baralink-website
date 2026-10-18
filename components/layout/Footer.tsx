@@ -127,11 +127,14 @@ export function Footer() {
               />
             </div>
             <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
-              <a href="#" className="transition hover:text-accent">
+              <Link href={href('/terms')} className="transition hover:text-accent">
                 {t.footer.legal}
-              </a>
+              </Link>
               <Link href={href('/privacy')} className="transition hover:text-accent">
                 {t.footer.privacy}
+              </Link>
+              <Link href={href('/delete-account')} className="transition hover:text-accent">
+                {t.footer.deleteAccount}
               </Link>
               {/* Reopens the usage-statistics choice (analytics plan AN-5). */}
               <button type="button" onClick={openConsentSettings} className="transition hover:text-accent">

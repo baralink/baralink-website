@@ -17,12 +17,15 @@ export function HowItWorks() {
           {t.how.steps.map((step, i) => {
             const Icon = ICONS[i];
             return (
-              <li key={step.title} className="relative rounded-3xl border border-slate-200 bg-slate-50/60 p-7">
+              <li
+                key={step.title}
+                className="group relative rounded-3xl border border-slate-200 bg-slate-50/60 p-7 transition duration-300 hover:-translate-y-1 hover:border-primary/30 hover:bg-white hover:shadow-[0_12px_32px_rgba(15,23,42,0.06)]"
+              >
                 <div className="flex items-center justify-between">
-                  <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary text-white">
+                  <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary text-white shadow-sm transition group-hover:scale-105">
                     <Icon className="h-6 w-6" aria-hidden="true" />
                   </span>
-                  <span className="text-5xl font-semibold text-slate-200" aria-hidden="true">
+                  <span className="text-5xl font-semibold text-slate-200 transition group-hover:text-primary/20" aria-hidden="true">
                     {i + 1}
                   </span>
                 </div>

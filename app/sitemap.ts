@@ -3,7 +3,9 @@ import { LOCALES, SITE_URL, localePath } from '@/lib/i18n/locales';
 
 const PAGES = [
   { path: '/', changeFrequency: 'monthly', priority: 1 },
+  { path: '/terms', changeFrequency: 'yearly', priority: 0.4 },
   { path: '/privacy', changeFrequency: 'yearly', priority: 0.3 },
+  { path: '/delete-account', changeFrequency: 'yearly', priority: 0.3 },
 ] as const;
 
 // Submitted in Google Search Console (analytics plan, AN-4). Each page in both languages,

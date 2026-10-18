@@ -193,8 +193,9 @@ const en = {
         { label: 'Verification', href: '#how-it-works' },
         { label: 'FAQs', href: '#faq' },
       ],
-      legal: 'Legal',
+      legal: 'Terms of use',
       privacy: 'Privacy',
+      deleteAccount: 'Delete account',
       cookies: 'Cookie Notice',
       rights: 'All rights reserved.',
     },
@@ -274,6 +275,121 @@ const en = {
         },
       ],
       back: 'Back to the home page',
+    },
+    terms: {
+      // DRAFT — to be approved by BaraLink and reviewed by a lawyer before final publication.
+      title: 'Terms of use',
+      metaDescription: 'Rules for using BaraLink as a client, worker or business account in Guinea: registration, escrow payments, cancellations, disputes and conduct.',
+      updated: 'Last updated: 18 October 2026',
+      intro: 'Welcome to BaraLink. By creating an account or using the BaraLink mobile app or website, you agree to these terms of use.',
+      sections: [
+        {
+          id: 'platform',
+          title: '1. Role of BaraLink',
+          body: [
+            'BaraLink is a marketplace that connects clients (individuals and businesses) with local workers in Guinea. BaraLink provides identity checks, secure mobile-money escrow, ratings and dispute resolution, but is not the employer of workers and is not a party to the service agreement between the client and the worker.',
+          ],
+        },
+        {
+          id: 'accounts',
+          title: '2. Accounts and verification',
+          body: [
+            'You must provide accurate information and verify your phone number by SMS before posting or applying for a job. You are responsible for keeping your PIN or password confidential and for all activity on your account.',
+            'Workers submit a Guinean identity document reviewed by our team before receiving the verified badge. Business accounts require a company registration number (RCCM) and admin approval before publishing jobs.',
+          ],
+        },
+        {
+          id: 'payments',
+          title: '3. Escrow payments, fees and payouts',
+          body: [
+            'Before posting a job, a client saves a mobile-money account. When a worker is assigned and accepts, the client pays the agreed amount in Guinean francs (GNF) via mobile money (Orange Money or MTN MoMo, processed by LengoPay) before work starts. BaraLink never stores banking or mobile-money secret codes.',
+            'BaraLink holds the funds in escrow while the work is performed. Once the worker marks the job done and the client confirms completion (or after the confirmation window expires without a dispute), BaraLink releases the payout to the worker’s verified mobile-money account, minus the applicable platform commission.',
+          ],
+        },
+        {
+          id: 'cancellations',
+          title: '4. Assignments, cancellations and disputes',
+          body: [
+            'An assigned worker must confirm the assignment within the deadline shown in the app. If a worker can no longer perform an accepted job, they must release the assignment in the app so the client can select another worker.',
+            'If there is a problem with the work or a disagreement, either party may open a dispute in the app before completion is confirmed. Opening a dispute freezes the held payment until BaraLink’s team reviews the evidence and resolves the outcome (release to worker, refund to client, or split).',
+          ],
+        },
+        {
+          id: 'conduct',
+          title: '5. Acceptable conduct and safety',
+          body: [
+            'Users must treat each other with respect. Harassment, fraud, fake accounts, off-platform fee evasion, unsafe behaviour or abuse of the rating or dispute system will result in restrictions or immediate suspension of the account.',
+          ],
+        },
+        {
+          id: 'liability',
+          title: '6. Liability and governing law',
+          body: [
+            'Workers are independent providers responsible for the quality and safety of their work. To the extent permitted by Guinean law, BaraLink’s liability for any claim related to a job is limited to the platform fees collected for that job. These terms are governed by the laws of the Republic of Guinea.',
+          ],
+        },
+      ],
+      back: 'Back to the home page',
+    },
+    deleteAccount: {
+      title: 'Delete your BaraLink account',
+      metaDescription: 'How to delete your BaraLink account and personal data from the mobile app or by contacting our support team.',
+      updated: 'Last updated: 18 October 2026',
+      intro: 'You can delete your BaraLink account at any time directly in the mobile app, or by asking our support team if you no longer have access to the app.',
+      inAppTitle: 'Option 1 — Delete directly in the app (instant)',
+      inAppSteps: [
+        'Open the BaraLink app and sign in to your account.',
+        'Go to your Profile tab and tap Settings (Paramètres).',
+        'Scroll to the Account section at the bottom and tap "Delete account" (Supprimer le compte), then confirm.',
+      ],
+      webTitle: 'Option 2 — Request deletion without the app',
+      webBody: 'If you uninstalled the app or cannot sign in, send us a deletion request using our contact form or by calling us from the phone number linked to your account. We will verify ownership of the account and process the deletion.',
+      webButton: 'Open the contact form',
+      whatHappensTitle: 'What is deleted and what is kept',
+      deletedTitle: 'Deleted immediately',
+      deletedItems: [
+        'Your personal details (name, phone number, email address, PIN/password) are scrubbed and anonymised.',
+        'Your profile photo, uploaded media, worker portfolio, availability windows and saved location snapshot are removed.',
+        'Your active sessions are closed and your profile no longer appears in search.',
+      ],
+      keptTitle: 'Kept for legal and accounting records',
+      keptItems: [
+        'Completed job records, payment ledger entries, escrow/payout receipts and dispute history are retained without your personal contact details, as required by law for financial bookkeeping and audit trails.',
+        'If you consented to usage statistics (Google Analytics / Firebase), you can also ask our support team to delete the analytics record linked to your random analytics ID.',
+      ],
+      back: 'Back to the home page',
+    },
+    paymentResult: {
+      success: {
+        badge: 'Payment return',
+        title: 'Returning to BaraLink…',
+        body: 'Your mobile-money checkout step has finished. If you opened this page inside the BaraLink app, the app is now verifying the payment status with LengoPay.',
+        hint: 'Payment is confirmed only once the app verifies that the funds are held in escrow. Keep the app open for a few seconds until your job shows "Payment held".',
+        openApp: 'Return to the BaraLink app',
+        backHome: 'Back to baralink.org',
+      },
+      failure: {
+        badge: 'Payment not completed',
+        title: 'The payment was not completed',
+        body: 'The mobile-money checkout was cancelled, declined or timed out before completion. No money is held if the transaction did not go through.',
+        hint: 'Return to the BaraLink app to check the status of your job or try the payment again. If your mobile-money account was debited, wait a moment—the app automatically checks with the payment provider.',
+        openApp: 'Return to the BaraLink app',
+        backHome: 'Back to baralink.org',
+      },
+    },
+    sharedJob: {
+      eyebrow: 'Shared job on BaraLink',
+      titlePrefix: 'Job #',
+      headline: 'View and apply for this job in the BaraLink app',
+      body: 'A BaraLink user shared this job with you. For privacy and security, full job details, client information and applications are available inside the BaraLink mobile app.',
+      steps: [
+        'Open the BaraLink app on your phone (or download it below).',
+        'Sign in and browse available jobs, or open the shared link directly on a phone with BaraLink installed.',
+        'Verified workers can apply in one tap; clients pay safely with mobile money held in escrow.',
+      ],
+      openInApp: 'Open in the BaraLink app',
+      downloadPrompt: 'Don’t have the app yet? Get BaraLink:',
+      backHome: 'Explore BaraLink',
     },
 };
 
@@ -468,8 +584,9 @@ const fr: typeof en = {
         { label: 'Vérification', href: '#how-it-works' },
         { label: 'FAQ', href: '#faq' },
       ],
-      legal: 'Mentions légales',
+      legal: 'Conditions d’utilisation',
       privacy: 'Confidentialité',
+      deleteAccount: 'Supprimer un compte',
       cookies: 'Cookies',
       rights: 'Tous droits réservés.',
     },
@@ -547,6 +664,120 @@ const fr: typeof en = {
         },
       ],
       back: 'Retour à l’accueil',
+    },
+    terms: {
+      title: 'Conditions d’utilisation',
+      metaDescription: 'Règles d’utilisation de BaraLink pour les clients, prestataires et comptes entreprises en Guinée : inscription, paiement sécurisé, annulations, litiges et conduite.',
+      updated: 'Dernière mise à jour : 18 octobre 2026',
+      intro: 'Bienvenue sur BaraLink. En créant un compte ou en utilisant l’application mobile ou le site BaraLink, vous acceptez les présentes conditions d’utilisation.',
+      sections: [
+        {
+          id: 'platform',
+          title: '1. Rôle de BaraLink',
+          body: [
+            'BaraLink est une plateforme de mise en relation entre des clients (particuliers et entreprises) et des travailleurs locaux en Guinée. BaraLink assure la vérification d’identité, le blocage sécurisé des paiements par mobile money, les évaluations et le règlement des litiges, mais n’est pas l’employeur des travailleurs et n’est pas partie au contrat de prestation conclu entre le client et le travailleur.',
+          ],
+        },
+        {
+          id: 'accounts',
+          title: '2. Comptes et vérification',
+          body: [
+            'Vous devez fournir des informations exactes et confirmer votre numéro de téléphone par SMS avant de publier une mission ou de postuler. Vous êtes responsable de la confidentialité de votre code PIN ou de votre mot de passe et de toute activité sur votre compte.',
+            'Les travailleurs transmettent une pièce d’identité guinéenne vérifiée par notre équipe avant d’obtenir le badge vérifié. Les comptes entreprises nécessitent un numéro d’immatriculation (RCCM) et la validation d’un administrateur avant de publier des missions.',
+          ],
+        },
+        {
+          id: 'payments',
+          title: '3. Paiements bloqués (séquestre), frais et versements',
+          body: [
+            'Avant de publier une mission, le client enregistre un compte mobile money. Lorsqu’un travailleur est choisi et accepte la mission, le client paie le montant convenu en francs guinéens (GNF) par mobile money (Orange Money ou MTN MoMo, traité via LengoPay) avant le début du travail. BaraLink ne stocke jamais vos codes secrets bancaires ou mobile money.',
+            'BaraLink conserve les fonds en sécurité pendant la réalisation de la mission. Une fois que le travailleur indique que la mission est terminée et que le client confirme (ou à l’expiration du délai de confirmation sans litige), BaraLink verse le paiement sur le compte mobile money vérifié du travailleur, déduction faite de la commission de la plateforme.',
+          ],
+        },
+        {
+          id: 'cancellations',
+          title: '4. Attributions, désistements et litiges',
+          body: [
+            'Un travailleur sélectionné doit confirmer la mission dans le délai affiché dans l’application. S’il ne peut plus réaliser une mission acceptée, il doit se désister dans l’application afin que le client puisse choisir un autre travailleur.',
+            'En cas de problème sur la prestation ou de désaccord, le client ou le travailleur peut ouvrir un litige dans l’application avant la confirmation de fin de mission. L’ouverture d’un litige bloque le paiement jusqu’à l’examen des preuves et la décision de l’équipe BaraLink (versement au travailleur, remboursement au client, ou partage).',
+          ],
+        },
+        {
+          id: 'conduct',
+          title: '5. Comportement et sécurité',
+          body: [
+            'Les utilisateurs doivent se traiter avec respect. Tout harcèlement, fraude, faux compte, contournement de la plateforme, comportement dangereux ou usage abusif des évaluations ou des litiges entraînera une restriction ou la suspension immédiate du compte.',
+          ],
+        },
+        {
+          id: 'liability',
+          title: '6. Responsabilité et droit applicable',
+          body: [
+            'Les travailleurs sont des prestataires indépendants responsables de la qualité et de la sécurité de leur travail. Dans les limites prévues par la loi guinéenne, la responsabilité de BaraLink au titre d’une mission est limitée au montant des frais de plateforme perçus pour cette mission. Les présentes conditions sont régies par le droit de la République de Guinée.',
+          ],
+        },
+      ],
+      back: 'Retour à l’accueil',
+    },
+    deleteAccount: {
+      title: 'Supprimer votre compte BaraLink',
+      metaDescription: 'Comment supprimer votre compte BaraLink et vos données personnelles depuis l’application mobile ou en contactant notre équipe.',
+      updated: 'Dernière mise à jour : 18 octobre 2026',
+      intro: 'Vous pouvez supprimer votre compte BaraLink à tout moment directement depuis l’application mobile, ou en faisant la demande à notre support si vous n’avez plus accès à l’application.',
+      inAppTitle: 'Option 1 — Supprimer directement dans l’application (immédiat)',
+      inAppSteps: [
+        'Ouvrez l’application BaraLink et connectez-vous à votre compte.',
+        'Allez dans l’onglet Profil puis appuyez sur Paramètres.',
+        'Descendez jusqu’à la section Compte en bas de l’écran, appuyez sur « Supprimer le compte », puis confirmez.',
+      ],
+      webTitle: 'Option 2 — Demander la suppression sans l’application',
+      webBody: 'Si vous avez désinstallé l’application ou ne pouvez plus vous connecter, envoyez-nous une demande via notre formulaire de contact ou appelez-nous depuis le numéro de téléphone lié à votre compte. Nous vérifierons que vous êtes bien le titulaire du compte et procéderons à la suppression.',
+      webButton: 'Ouvrir le formulaire de contact',
+      whatHappensTitle: 'Ce qui est supprimé et ce qui est conservé',
+      deletedTitle: 'Supprimé immédiatement',
+      deletedItems: [
+        'Vos informations personnelles (nom, numéro de téléphone, adresse e-mail, code PIN / mot de passe) sont effacées et anonymisées.',
+        'Votre photo de profil, vos fichiers envoyés, votre portfolio prestataire, vos créneaux de disponibilité et votre position enregistrée sont supprimés.',
+        'Vos sessions actives sont fermées et votre profil n’apparaît plus dans les recherches.',
+      ],
+      keptTitle: 'Conservé pour les obligations légales et comptables',
+      keptItems: [
+        'L’historique des missions terminées, les écritures comptables, les reçus de paiement/versement et l’historique des litiges sont conservés sans vos coordonnées personnelles, comme l’exige la loi pour la comptabilité et les contrôles.',
+        'Si vous avez accepté les statistiques d’utilisation (Google Analytics / Firebase), vous pouvez également demander à notre support d’effacer les statistiques associées à votre identifiant aléatoire.',
+      ],
+      back: 'Retour à l’accueil',
+    },
+    paymentResult: {
+      success: {
+        badge: 'Retour de paiement',
+        title: 'Retour vers BaraLink…',
+        body: 'L’étape de paiement mobile money est terminée. Si vous avez ouvert cette page dans l’application BaraLink, celle-ci vérifie maintenant le statut du paiement auprès de LengoPay.',
+        hint: 'Le paiement n’est confirmé qu’une fois que l’application vérifie que les fonds sont bien bloqués en sécurité. Gardez l’application ouverte quelques secondes jusqu’à l’affichage de « Paiement bloqué ».',
+        openApp: 'Retourner dans l’application BaraLink',
+        backHome: 'Retour sur baralink.org',
+      },
+      failure: {
+        badge: 'Paiement non finalisé',
+        title: 'Le paiement n’a pas abouti',
+        body: 'Le paiement mobile money a été annulé, refusé ou a expiré avant sa validation. Aucun montant n’est bloqué si la transaction n’est pas passée.',
+        hint: 'Retournez dans l’application BaraLink pour vérifier le statut de votre mission ou réessayer le paiement. Si votre compte mobile money a été débité, patientez un instant : l’application vérifie automatiquement auprès de l’opérateur.',
+        openApp: 'Retourner dans l’application BaraLink',
+        backHome: 'Retour sur baralink.org',
+      },
+    },
+    sharedJob: {
+      eyebrow: 'Mission partagée sur BaraLink',
+      titlePrefix: 'Mission n°',
+      headline: 'Consultez et postulez à cette mission dans l’application BaraLink',
+      body: 'Un utilisateur de BaraLink a partagé cette mission avec vous. Pour protéger la vie privée et la sécurité des utilisateurs, le détail complet de la mission, les informations du client et les candidatures sont accessibles dans l’application mobile BaraLink.',
+      steps: [
+        'Ouvrez l’application BaraLink sur votre téléphone (ou téléchargez-la ci-dessous).',
+        'Connectez-vous et parcourez les missions disponibles, ou ouvrez directement le lien partagé sur un téléphone où BaraLink est installé.',
+        'Les travailleurs vérifiés postulent en un clic ; les clients paient en toute sécurité par mobile money bloqué jusqu’à la fin du travail.',
+      ],
+      openInApp: 'Ouvrir dans l’application BaraLink',
+      downloadPrompt: 'Vous n’avez pas encore l’application ? Téléchargez BaraLink :',
+      backHome: 'Découvrir BaraLink',
     },
 };
 
