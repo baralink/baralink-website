@@ -1,13 +1,13 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { Phone } from 'lucide-react';
+import { MessageCircle, Phone } from 'lucide-react';
 import { useI18n } from '@/lib/i18n/I18nProvider';
-import { PHONES, telHref } from '@/lib/contact';
+import { PHONES, telHref, whatsappHref } from '@/lib/contact';
 
 /**
  * The red "Call" button of the sticky header: one tap opens BaraLink's numbers, each a
- * tel: link (contact_click {method: phone}).
+ * tel: link (contact_click {method: phone}), plus WhatsApp ({method: whatsapp}).
  */
 export function CallButton({ compact = false, up = false }: { compact?: boolean; up?: boolean }) {
   const { t, href } = useI18n();
@@ -45,7 +45,7 @@ export function CallButton({ compact = false, up = false }: { compact?: boolean;
       </button>
       {open && (
         <div
-          className={`absolute z-50 w-64 rounded-2xl border border-slate-200 bg-white p-2 text-left shadow-xl ${
+          className={`absolute z-50 w-68 rounded-2xl border border-slate-200 bg-white p-2 text-left shadow-xl ${
             up ? 'bottom-full left-1/2 mb-2 -translate-x-1/2' : 'right-0 top-full mt-2'
           }`}
         >
@@ -57,18 +57,33 @@ export function CallButton({ compact = false, up = false }: { compact?: boolean;
               data-analytics="contact_click"
               data-method="phone"
               onClick={() => setOpen(false)}
-              className="flex items-center gap-3 rounded-xl px-3 py-3 text-base font-semibold text-slate-900 transition hover:bg-slate-50"
+              className="flex items-center gap-3 rounded-xl px-3 py-2.5 text-base font-semibold text-slate-900 transition hover:bg-slate-50"
             >
-              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-call/10 text-call">
+              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-call/10 text-call">
                 <Phone className="h-4 w-4" aria-hidden="true" />
               </span>
               {phone}
             </a>
           ))}
+          <div className="my-1 border-t border-slate-100" />
+          <a
+            href={whatsappHref()}
+            target="_blank"
+            rel="noopener noreferrer"
+            data-analytics="contact_click"
+            data-method="whatsapp"
+            onClick={() => setOpen(false)}
+            className="flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-semibold text-emerald-800 transition hover:bg-emerald-50"
+          >
+            <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-emerald-100 text-emerald-700">
+              <MessageCircle className="h-4 w-4" aria-hidden="true" />
+            </span>
+            {t.call.whatsapp}
+          </a>
           <a
             href={`${href('/')}#contact`}
             onClick={() => setOpen(false)}
-            className="mt-1 block rounded-xl px-3 py-2.5 text-sm font-medium text-primary transition hover:bg-slate-50"
+            className="mt-0.5 block rounded-xl px-3 py-2 text-sm font-medium text-primary transition hover:bg-slate-50"
           >
             {t.call.write}
           </a>

@@ -13,7 +13,7 @@ import { FinalCta } from "@/components/sections/FinalCta";
 import { QuickActions } from "@/components/sections/QuickActions";
 import { dictionaries } from "@/lib/i18n/dictionaries";
 import { SITE_URL, alternatesFor, hasLocale } from "@/lib/i18n/locales";
-import { PHONES } from "@/lib/contact";
+import { PHONES, SOCIAL_LINKS } from "@/lib/contact";
 
 export async function generateMetadata({ params }: PageProps<"/[lang]">): Promise<Metadata> {
   const { lang } = await params;
@@ -39,6 +39,7 @@ function structuredData(lang: "fr" | "en") {
         url: SITE_URL,
         logo: `${SITE_URL}/logos/BaraLink-Logo-white.png`,
         description: meta.description,
+        sameAs: Object.values(SOCIAL_LINKS),
         areaServed: { "@type": "Country", name: "Guinea", identifier: "GN" },
         address: {
           "@type": "PostalAddress",

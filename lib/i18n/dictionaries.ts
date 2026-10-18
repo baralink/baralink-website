@@ -25,6 +25,7 @@ const en = {
     call: {
       button: 'Call',
       title: 'Call BaraLink',
+      whatsapp: 'Chat on WhatsApp',
       write: 'Or write to us →',
     },
     quick: {
@@ -37,7 +38,7 @@ const en = {
       ],
     },
     announcement:
-      '🎉 Welcome to BaraLink! The new mobile app is now available for download.',
+      'Conakry, Guinea · Verified local workers · Payment held until the job is done',
     callUs: 'Call Us',
     hero: {
       titleLine1: 'Trusted local workers,',
@@ -134,6 +135,7 @@ const en = {
       heading: 'Get in touch',
       body: 'Questions, partnerships, or need a hand getting started? Reach out and our team will get back to you.',
       phoneLabel: 'Call us',
+      whatsappLabel: 'WhatsApp',
       emailLabel: 'Email us',
       locationLabel: 'Find us',
       locations: ['Matoto, Conakry'],
@@ -416,6 +418,7 @@ const fr: typeof en = {
     call: {
       button: 'Appeler',
       title: 'Appeler BaraLink',
+      whatsapp: 'Écrire sur WhatsApp',
       write: 'Ou écrivez-nous →',
     },
     quick: {
@@ -428,7 +431,7 @@ const fr: typeof en = {
       ],
     },
     announcement:
-      '🎉 Bienvenue sur BaraLink ! La nouvelle application mobile est maintenant disponible au téléchargement.',
+      'Conakry, Guinée · Travailleurs locaux vérifiés · Paiement bloqué jusqu’à la fin du travail',
     callUs: 'Appelez-nous',
     hero: {
       titleLine1: 'Des travailleurs de confiance,',
@@ -525,6 +528,7 @@ const fr: typeof en = {
       heading: 'Entrons en contact',
       body: 'Des questions, un partenariat, ou besoin d’aide pour démarrer ? Écrivez-nous et notre équipe vous répondra.',
       phoneLabel: 'Appelez-nous',
+      whatsappLabel: 'WhatsApp',
       emailLabel: 'Écrivez-nous',
       locationLabel: 'Où nous trouver',
       locations: ['Matoto, Conakry'],

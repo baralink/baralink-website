@@ -1,11 +1,13 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { MapPin, Menu, Phone, X } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 import { useI18n } from '@/lib/i18n/I18nProvider';
 import type { Locale } from '@/lib/i18n/locales';
+import { PHONES, telHref } from '@/lib/contact';
 import { CallButton } from '@/components/ui/CallButton';
 
 function Flag({ locale }: { locale: Locale }) {
@@ -86,9 +88,11 @@ function useActiveSection() {
 
 export default function Header() {
   const { t, href } = useI18n();
+  const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const active = useActiveSection();
+  const isHomeRoute = pathname === '/' || pathname === '/fr' || pathname === '/en';
 
   // Lock body scrolling when the mobile menu is open
   useEffect(() => {
@@ -115,13 +119,32 @@ export default function Header() {
     { name: t.nav.faq, id: 'faq' },
     { name: t.nav.contact, id: 'contact' },
   ];
-  const isActive = (id: string) => active === id;
+  const isActive = (id: string) => isHomeRoute && active === id;
 
   return (
     <div className={`sticky top-0 z-50 w-full transition-shadow ${scrolled ? 'shadow-md' : 'shadow-sm'}`}>
-      {/* Announcement bar */}
-      <div className="border-b border-white/10 bg-primary px-3 py-1.5 text-xs text-white sm:px-4 sm:text-sm lg:px-6">
-        <p className="mx-auto max-w-7xl truncate text-center font-medium sm:text-left">{t.announcement}</p>
+      {/* Clean utility bar */}
+      <div className="border-b border-white/10 bg-primary px-3 py-1.5 text-xs text-white/95 sm:px-4 lg:px-6">
+        <div className="mx-auto flex max-w-7xl items-center justify-center gap-4 sm:justify-between">
+          <p className="flex items-center gap-1.5 truncate font-medium">
+            <MapPin className="h-3.5 w-3.5 shrink-0 text-accent" aria-hidden="true" />
+            <span>{t.announcement}</span>
+          </p>
+          <div className="hidden items-center gap-4 font-semibold md:flex">
+            {PHONES.map((phone) => (
+              <a
+                key={phone}
+                href={telHref(phone)}
+                data-analytics="contact_click"
+                data-method="phone"
+                className="inline-flex items-center gap-1.5 text-white/90 transition hover:text-accent"
+              >
+                <Phone className="h-3 w-3 text-accent" aria-hidden="true" />
+                {phone}
+              </a>
+            ))}
+          </div>
+        </div>
       </div>
 
       <header className="w-full border-b border-slate-100 bg-white/95 text-[var(--foreground)] backdrop-blur-md">

@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { ArrowLeft, BadgeCheck, Briefcase, ShieldCheck, Smartphone } from 'lucide-react';
+import { ArrowLeft, BadgeCheck, Briefcase, ChevronRight, ShieldCheck, Smartphone } from 'lucide-react';
 import { useI18n } from '@/lib/i18n/I18nProvider';
 import { StoreBadges } from '@/components/ui/StoreBadges';
 
@@ -10,7 +10,17 @@ export function SharedJobContent({ jobId }: { jobId: string }) {
   const s = t.sharedJob;
 
   return (
-    <section className="mx-auto max-w-3xl px-6 py-16 lg:px-8 lg:py-24">
+    <section className="mx-auto max-w-3xl px-6 py-12 lg:px-8 lg:py-16">
+      <nav aria-label="Breadcrumb" className="mb-6 flex items-center gap-2 text-sm font-medium text-slate-500">
+        <Link href={href('/')} className="transition hover:text-primary">
+          {t.nav.home}
+        </Link>
+        <ChevronRight className="h-4 w-4 text-slate-400" aria-hidden="true" />
+        <span className="text-slate-900" aria-current="page">
+          {s.titlePrefix}
+          {jobId}
+        </span>
+      </nav>
       <div className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-[0_12px_40px_rgba(15,23,42,0.08)]">
         {/* Top banner */}
         <div className="bg-primary px-8 py-8 text-white sm:px-12">
