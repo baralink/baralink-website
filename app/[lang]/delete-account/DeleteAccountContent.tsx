@@ -1,142 +1,109 @@
 'use client';
 
 import Link from 'next/link';
-import { ArrowLeft, CheckCircle2, ChevronRight, ShieldAlert, Smartphone, Trash2 } from 'lucide-react';
+import { CheckCircle2, ShieldAlert, Smartphone } from 'lucide-react';
 import { useI18n } from '@/lib/i18n/I18nProvider';
 import { PHONES, SUPPORT_EMAIL, telHref } from '@/lib/contact';
+import { buttonClass } from '@/components/ui/Button';
+import { LegalArticle, LegalBack, LegalSection } from '@/components/legal/LegalArticle';
 
 export function DeleteAccountContent() {
   const { t, href } = useI18n();
   const d = t.deleteAccount;
 
   return (
-    <article className="mx-auto max-w-4xl px-6 py-12 lg:px-8 lg:py-16">
-      <nav aria-label="Breadcrumb" className="mb-6 flex items-center gap-2 text-sm font-medium text-slate-500">
-        <Link href={href('/')} className="transition hover:text-primary">
-          {t.nav.home}
-        </Link>
-        <ChevronRight className="h-4 w-4 text-slate-400" aria-hidden="true" />
-        <span className="text-slate-900" aria-current="page">
-          {d.title}
-        </span>
-      </nav>
-      <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-[0_8px_30px_rgba(15,23,42,0.05)] sm:p-12">
-        <div className="inline-flex items-center gap-2 rounded-full bg-primary-light px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider text-primary">
-          <Trash2 className="h-4 w-4" aria-hidden="true" />
-          BaraLink
-        </div>
-        <h1 className="mt-4 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">{d.title}</h1>
-        <p className="mt-2 text-sm text-slate-500">{d.updated}</p>
-        <p className="mt-6 text-base leading-7 text-slate-700">{d.intro}</p>
-
-        {/* Two ways to delete */}
-        <div className="mt-10 grid gap-6 md:grid-cols-2">
-          <section className="rounded-2xl border border-slate-200 bg-slate-50/70 p-6">
-            <div className="flex items-center gap-3">
-              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary text-white">
-                <Smartphone className="h-5 w-5" aria-hidden="true" />
-              </span>
-              <h2 className="text-lg font-semibold text-slate-950">{d.inAppTitle}</h2>
-            </div>
-            <ol className="mt-5 space-y-3 text-sm leading-6 text-slate-700">
-              {d.inAppSteps.map((step, i) => (
-                <li key={step} className="flex gap-3">
-                  <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary/10 text-xs font-semibold text-primary">
-                    {i + 1}
-                  </span>
-                  <span>{step}</span>
-                </li>
-              ))}
-            </ol>
-          </section>
-
-          <section className="flex flex-col justify-between rounded-2xl border border-slate-200 bg-slate-50/70 p-6">
-            <div>
-              <h2 className="text-lg font-semibold text-slate-950">{d.webTitle}</h2>
-              <p className="mt-3 text-sm leading-6 text-slate-700">{d.webBody}</p>
-              <div className="mt-4 space-y-1 text-sm text-slate-600">
-                <p>
-                  {PHONES.map((p, idx) => (
-                    <span key={p}>
-                      {idx > 0 && ' · '}
-                      <a
-                        href={telHref(p)}
-                        data-analytics="contact_click"
-                        data-method="phone"
-                        className="font-semibold text-slate-900 underline-offset-2 hover:underline"
-                      >
-                        {p}
-                      </a>
-                    </span>
-                  ))}
-                </p>
-                <p>
-                  <a
-                    href={`mailto:${SUPPORT_EMAIL}`}
-                    data-analytics="contact_click"
-                    data-method="email"
-                    className="font-semibold text-slate-900 underline-offset-2 hover:underline"
-                  >
-                    {SUPPORT_EMAIL}
-                  </a>
-                </p>
-              </div>
-            </div>
-            <Link
-              href={`${href('/')}#contact`}
-              className="mt-6 inline-flex min-h-11 items-center justify-center rounded-full bg-primary px-6 py-2.5 text-sm font-semibold text-white transition hover:bg-primary-dark"
-            >
-              {d.webButton}
-            </Link>
-          </section>
-        </div>
-
-        {/* What is deleted vs kept */}
-        <section className="mt-10 border-t border-slate-100 pt-8">
-          <h2 className="text-xl font-semibold text-slate-950">{d.whatHappensTitle}</h2>
-          <div className="mt-6 grid gap-6 md:grid-cols-2">
-            <div className="rounded-2xl border border-emerald-200/80 bg-emerald-50/40 p-6">
-              <div className="flex items-center gap-2.5 text-emerald-900">
-                <CheckCircle2 className="h-5 w-5 shrink-0 text-emerald-600" aria-hidden="true" />
-                <h3 className="text-base font-semibold">{d.deletedTitle}</h3>
-              </div>
-              <ul className="mt-4 space-y-2.5 text-sm leading-6 text-slate-700">
-                {d.deletedItems.map((item) => (
-                  <li key={item} className="flex gap-2.5">
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-600" aria-hidden="true" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="rounded-2xl border border-amber-200/80 bg-amber-50/40 p-6">
-              <div className="flex items-center gap-2.5 text-amber-950">
-                <ShieldAlert className="h-5 w-5 shrink-0 text-amber-600" aria-hidden="true" />
-                <h3 className="text-base font-semibold">{d.keptTitle}</h3>
-              </div>
-              <ul className="mt-4 space-y-2.5 text-sm leading-6 text-slate-700">
-                {d.keptItems.map((item) => (
-                  <li key={item} className="flex gap-2.5">
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-amber-600" aria-hidden="true" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+    <LegalArticle title={d.title} updated={d.updated} intro={d.intro}>
+      <div className="mt-2 grid gap-10 md:grid-cols-2">
+        <section>
+          <div className="flex items-center gap-3">
+            <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-tile text-primary">
+              <Smartphone className="h-5 w-5" aria-hidden="true" />
+            </span>
+            <h2 className="t-lead font-semibold">{d.inAppTitle}</h2>
           </div>
+          <ol className="mt-6 space-y-4">
+            {d.inAppSteps.map((step, index) => (
+              <li key={step} className="flex gap-3">
+                <span
+                  className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-tile text-[15px] font-semibold text-primary"
+                  aria-hidden="true"
+                >
+                  {index + 1}
+                </span>
+                <span className="t-body text-ink-soft">{step}</span>
+              </li>
+            ))}
+          </ol>
         </section>
 
-        <div className="mt-12 border-t border-slate-100 pt-8">
-          <Link
-            href={href('/')}
-            className="inline-flex items-center gap-2 font-semibold text-primary transition hover:text-primary-dark"
-          >
-            <ArrowLeft className="h-4 w-4" aria-hidden="true" />
-            {d.back}
+        <section>
+          <h2 className="t-lead font-semibold">{d.webTitle}</h2>
+          <p className="t-body mt-4 text-ink-soft">{d.webBody}</p>
+          <ul className="mt-5 space-y-2">
+            {PHONES.map((phone) => (
+              <li key={phone}>
+                <a
+                  href={telHref(phone)}
+                  data-analytics="contact_click"
+                  data-method="phone"
+                  className="t-ui font-semibold text-primary transition-colors duration-200 hover:text-primary-dark"
+                >
+                  {phone}
+                </a>
+              </li>
+            ))}
+            <li>
+              <a
+                href={`mailto:${SUPPORT_EMAIL}`}
+                data-analytics="contact_click"
+                data-method="email"
+                className="t-ui font-semibold text-primary transition-colors duration-200 hover:text-primary-dark"
+              >
+                {SUPPORT_EMAIL}
+              </a>
+            </li>
+          </ul>
+          <Link href={`${href('/')}#contact`} className={buttonClass({ className: 'mt-6' })}>
+            {d.webButton}
           </Link>
-        </div>
+        </section>
       </div>
-    </article>
+
+      <LegalSection id="what-happens" title={d.whatHappensTitle}>
+        <div className="mt-6 grid gap-8 md:grid-cols-2">
+          <div className="rounded-[28px] bg-tile p-7">
+            <div className="flex items-center gap-2.5">
+              <CheckCircle2 className="h-5 w-5 shrink-0 text-primary" aria-hidden="true" />
+              <h3 className="t-lead font-semibold">{d.deletedTitle}</h3>
+            </div>
+            <ul className="mt-5 space-y-3">
+              {d.deletedItems.map((item) => (
+                <li key={item} className="flex gap-3">
+                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" aria-hidden="true" />
+                  <span className="t-body text-ink-soft">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="rounded-[28px] bg-tile p-7">
+            <div className="flex items-center gap-2.5">
+              <ShieldAlert className="h-5 w-5 shrink-0 text-primary" aria-hidden="true" />
+              <h3 className="t-lead font-semibold">{d.keptTitle}</h3>
+            </div>
+            <ul className="mt-5 space-y-3">
+              {d.keptItems.map((item) => (
+                <li key={item} className="flex gap-3">
+                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" aria-hidden="true" />
+                  <span className="t-body text-ink-soft">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </LegalSection>
+
+      <LegalBack label={d.back} />
+    </LegalArticle>
   );
 }

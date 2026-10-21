@@ -14,14 +14,17 @@ const en = {
   },
   nav: {
     home: 'Home',
-      about: 'About Us',
-      howItWorks: 'How it works',
-      forClients: 'For Clients',
-      forWorkers: 'For Workers',
-      contact: 'Contact Us',
-      faq: 'FAQ',
-      menu: 'Menu',
-    },
+    about: 'About Us',
+    howItWorks: 'How it works',
+    forClients: 'For Clients',
+    forWorkers: 'For Workers',
+    services: 'Services',
+    contact: 'Contact Us',
+    faq: 'FAQ',
+    menu: 'Menu',
+    language: 'Language',
+    download: 'Download',
+  },
     call: {
       button: 'Call',
       title: 'Call BaraLink',
@@ -39,26 +42,58 @@ const en = {
     },
     announcement:
       'Conakry, Guinea · Verified local workers · Payment held until the job is done',
+    announcementShort: 'Verified local workers in Conakry.',
     callUs: 'Call Us',
     hero: {
-      titleLine1: 'Trusted local workers,',
-      titleLine2: 'a tap away.',
+      titleLine1: 'Trusted local workers.',
       description:
-        'Book verified workers in Guinea for repairs, cleaning, delivery and everyday home services.',
+        'Book verified workers in Conakry, a tap away: repairs, cleaning, delivery and everyday home services.',
       download: 'Download the app',
       howItWorks: 'See how it works',
       trust: ['Verified workers', 'Payment held until the job is done', 'Rated by real clients'],
       stores: 'Get the app',
+      photoAlt: 'A BaraLink worker and a client greeting each other at the door of a home.',
+      appAlt: 'BaraLink app screen listing available jobs with their budget in Guinean francs.',
+    },
+    stores: {
+      badges: 'The app',
+      play: 'Get it on Google Play',
+      appStore: 'Download on the App Store',
+      soon: 'The app is arriving on Google Play and the App Store.',
+      help: 'Until then, call us or write to us: we sign you up and answer your questions.',
+    },
+    payment: {
+      heading: 'Payment, end to end',
+      intro:
+        'Every job is paid in the app, in Guinean francs, with the money held until you confirm the work is done.',
+      steps: [
+        {
+          title: 'You pay with mobile money',
+          body: 'The agreed amount is paid in Guinean francs (GNF) with Orange Money or MTN MoMo before the work starts.',
+        },
+        {
+          title: 'BaraLink holds the money',
+          body: 'The funds stay held while the job runs. BaraLink never stores your banking or mobile-money secret codes.',
+        },
+        {
+          title: 'The payout leaves on your confirmation',
+          body: 'The worker marks the job done. You confirm, and the payout goes to their verified mobile-money account, minus the platform commission.',
+        },
+      ],
+      dispute:
+        'Something wrong with the job? Open a dispute in the app before confirming: the payment stays held until our team reviews the evidence and settles it.',
     },
     about: {
       eyebrow: 'About Us',
-      headline: 'Trust shouldn’t depend on who you know.',
-      body: 'We help people in Guinea find verified local workers in minutes — and help skilled workers build a reputation they own.',
+      headline: 'Trust, without who you know.',
+      body: 'We help people in Guinea find verified local workers in minutes, and help skilled workers build a reputation they own.',
+      context: 'In Guinea, three figures explain why we start here.',
       stats: [
         { value: '96%', label: 'of work is informal' },
         { value: '84.6%', label: 'have a phone' },
         { value: '1 city', label: 'to start' },
       ],
+      photoAlt: 'A BaraLink client holding her phone.',
     },
     how: {
       heading: 'A smooth, trusted way to get things done',
@@ -69,6 +104,7 @@ const en = {
         { title: 'Book and pay', body: 'Book a verified worker, agree on the job and pay in the app: the money is held until the work is done.' },
         { title: 'Confirm and rate', body: 'Confirm the job is done and rate the work, to build trust for next time.' },
       ],
+      photoAlt: 'Workers cleaning the inside of a home.',
     },
     forEveryone: {
       sectionTitle: 'Built for both sides',
@@ -78,11 +114,13 @@ const en = {
         title: 'Help, when you need it',
         subtitle: 'Verified workers near you',
         body: 'Find trusted plumbers, cleaners, electricians and more in minutes. Every worker is verified and rated by real neighbors, so you know exactly who shows up at your door.',
+        photoAlt: 'Two BaraLink clients looking at the app together.',
       },
       workers: {
         title: 'More jobs, more income',
         subtitle: 'Build a reputation you own',
         body: 'Reach new clients beyond your personal network and turn good work into steady demand. Your ratings and history stay with you, helping you grow a reputation that keeps the jobs coming.',
+        photoAlt: 'Two BaraLink workers on a job.',
       },
     },
     sections: {
@@ -126,8 +164,8 @@ const en = {
       },
     ],
     final: {
-      title: 'Get started with BaraLink',
-      body: 'Download the app, or call us: we will help you get started.',
+      title: 'Get BaraLink',
+      body: 'Download the app to book, pay and follow your jobs. In a hurry? Call us or send a WhatsApp message.',
     },
     mobileBar: { call: 'Call', download: 'Download' },
     contact: {
@@ -219,7 +257,7 @@ const en = {
       // DRAFT — analytics plan AN-11: to be approved by BaraLink and reviewed by a lawyer
       // (Guinea, Loi L/2016/037/AN; GDPR for users in Europe) before this page is published.
       title: 'Privacy policy',
-      metaDescription: 'What BaraLink collects, why, who it is shared with, and your choices — usage statistics and contact messages included.',
+      metaDescription: 'What BaraLink collects, why, who it is shared with, and your choices: usage statistics and contact messages included.',
       updated: 'Last updated: 17 October 2026',
       intro: 'Your privacy matters to us. This page explains what BaraLink collects, why, who it is shared with, and the choices you have.',
       sections: [
@@ -338,13 +376,13 @@ const en = {
       metaDescription: 'How to delete your BaraLink account and personal data from the mobile app or by contacting our support team.',
       updated: 'Last updated: 18 October 2026',
       intro: 'You can delete your BaraLink account at any time directly in the mobile app, or by asking our support team if you no longer have access to the app.',
-      inAppTitle: 'Option 1 — Delete directly in the app (instant)',
+      inAppTitle: 'Option 1: Delete directly in the app (instant)',
       inAppSteps: [
         'Open the BaraLink app and sign in to your account.',
         'Go to your Profile tab and tap Settings (Paramètres).',
         'Scroll to the Account section at the bottom and tap "Delete account" (Supprimer le compte), then confirm.',
       ],
-      webTitle: 'Option 2 — Request deletion without the app',
+      webTitle: 'Option 2: Request deletion without the app',
       webBody: 'If you uninstalled the app or cannot sign in, send us a deletion request using our contact form or by calling us from the phone number linked to your account. We will verify ownership of the account and process the deletion.',
       webButton: 'Open the contact form',
       whatHappensTitle: 'What is deleted and what is kept',
@@ -374,7 +412,7 @@ const en = {
         badge: 'Payment not completed',
         title: 'The payment was not completed',
         body: 'The mobile-money checkout was cancelled, declined or timed out before completion. No money is held if the transaction did not go through.',
-        hint: 'Return to the BaraLink app to check the status of your job or try the payment again. If your mobile-money account was debited, wait a moment—the app automatically checks with the payment provider.',
+        hint: 'Return to the BaraLink app to check the status of your job or try the payment again. If your mobile-money account was debited, wait a moment: the app automatically checks with the payment provider.',
         openApp: 'Return to the BaraLink app',
         backHome: 'Back to baralink.org',
       },
@@ -411,9 +449,12 @@ const fr: typeof en = {
       howItWorks: 'Comment ça marche',
       forClients: 'Pour les clients',
       forWorkers: 'Pour les travailleurs',
+      services: 'Services',
       contact: 'Contact',
       faq: 'FAQ',
       menu: 'Menu',
+      language: 'Langue',
+      download: 'Télécharger',
     },
     call: {
       button: 'Appeler',
@@ -432,26 +473,58 @@ const fr: typeof en = {
     },
     announcement:
       'Conakry, Guinée · Travailleurs locaux vérifiés · Paiement bloqué jusqu’à la fin du travail',
+    announcementShort: 'Des travailleurs locaux vérifiés à Conakry.',
     callUs: 'Appelez-nous',
     hero: {
-      titleLine1: 'Des travailleurs de confiance,',
-      titleLine2: 'à portée de clic.',
+      titleLine1: 'Des travailleurs de confiance.',
       description:
-        'Réservez des travailleurs vérifiés en Guinée pour vos réparations, le ménage, la livraison et tous vos services à domicile.',
+        'Réservez des travailleurs vérifiés à Conakry, à portée de clic : réparations, ménage, livraison et services à domicile.',
       download: 'Télécharger l’app',
       howItWorks: 'Voir comment ça marche',
       trust: ['Travailleurs vérifiés', 'Paiement bloqué jusqu’à la fin du travail', 'Notés par de vrais clients'],
       stores: 'Téléchargez l’application',
+      photoAlt: 'Un travailleur BaraLink et une cliente se saluent à la porte d’une maison.',
+      appAlt: 'Écran de l’application BaraLink : missions disponibles avec leur budget en francs guinéens.',
+    },
+    stores: {
+      badges: 'L’application',
+      play: 'Disponible sur Google Play',
+      appStore: 'Disponible sur l’App Store',
+      soon: 'L’application arrive sur Google Play et l’App Store.',
+      help: 'En attendant, appelez-nous ou écrivez-nous : nous vous inscrivons et répondons à vos questions.',
+    },
+    payment: {
+      heading: 'Le paiement, de bout en bout',
+      intro:
+        'Chaque mission se paie dans l’application, en francs guinéens, et l’argent reste bloqué jusqu’à ce que vous confirmiez la fin du travail.',
+      steps: [
+        {
+          title: 'Vous payez par mobile money',
+          body: 'Le montant convenu est réglé en francs guinéens (GNF) avec Orange Money ou MTN MoMo, avant le début du travail.',
+        },
+        {
+          title: 'BaraLink garde l’argent',
+          body: 'Les fonds restent bloqués pendant la mission. BaraLink ne stocke jamais vos codes secrets bancaires ou mobile money.',
+        },
+        {
+          title: 'Le versement part à votre confirmation',
+          body: 'Le travailleur marque la mission terminée. Vous confirmez, et le versement part sur son compte mobile money vérifié, moins la commission de la plateforme.',
+        },
+      ],
+      dispute:
+        'Un problème pendant la mission ? Ouvrez un litige dans l’application avant de confirmer : le paiement reste bloqué jusqu’à l’examen des preuves et la décision de notre équipe.',
     },
     about: {
       eyebrow: 'À propos',
-      headline: 'La confiance ne devrait pas dépendre de vos relations.',
-      body: 'Nous aidons les Guinéens à trouver des travailleurs locaux vérifiés en quelques minutes — et nous aidons les travailleurs qualifiés à bâtir une réputation qui leur appartient.',
+      headline: 'La confiance, sans dépendre de vos relations.',
+      body: 'Nous aidons les Guinéens à trouver des travailleurs locaux vérifiés en quelques minutes, et nous aidons les travailleurs qualifiés à bâtir une réputation qui leur appartient.',
+      context: 'En Guinée, trois chiffres expliquent pourquoi nous commençons ici.',
       stats: [
         { value: '96%', label: 'du travail est informel' },
         { value: '84,6%', label: 'ont un téléphone' },
         { value: '1 ville', label: 'pour commencer' },
       ],
+      photoAlt: 'Une cliente BaraLink avec son téléphone.',
     },
     how: {
       heading: 'Une façon simple et fiable de tout régler',
@@ -462,6 +535,7 @@ const fr: typeof en = {
         { title: 'Réservez et payez', body: 'Réservez un travailleur vérifié, convenez de la tâche et payez dans l’application : l’argent est bloqué jusqu’à la fin du travail.' },
         { title: 'Confirmez et notez', body: 'Confirmez que le travail est fait et notez-le, pour construire la confiance la prochaine fois.' },
       ],
+      photoAlt: 'Des travailleurs nettoient l’intérieur d’une maison.',
     },
     forEveryone: {
       sectionTitle: 'Conçu pour les deux côtés',
@@ -471,11 +545,13 @@ const fr: typeof en = {
         title: 'De l’aide, quand vous en avez besoin',
         subtitle: 'Des travailleurs vérifiés près de chez vous',
         body: 'Trouvez des plombiers, agents de ménage, électriciens et bien d’autres en quelques minutes. Chaque travailleur est vérifié et noté par de vrais voisins, pour savoir exactement qui se présente chez vous.',
+        photoAlt: 'Deux clientes BaraLink regardent l’application ensemble.',
       },
       workers: {
         title: 'Plus de missions, plus de revenus',
         subtitle: 'Bâtissez une réputation qui vous appartient',
         body: 'Touchez de nouveaux clients au-delà de votre réseau personnel et transformez un bon travail en demande régulière. Vos notes et votre historique vous suivent et vous aident à bâtir une réputation qui attire les missions.',
+        photoAlt: 'Deux travailleurs BaraLink en pleine mission.',
       },
     },
     sections: {
@@ -519,8 +595,8 @@ const fr: typeof en = {
       },
     ],
     final: {
-      title: 'Commencez avec BaraLink',
-      body: 'Téléchargez l’application, ou appelez-nous : nous vous aidons à démarrer.',
+      title: 'Télécharger BaraLink',
+      body: 'Téléchargez l’application pour réserver, payer et suivre vos missions. Pressé ? Appelez-nous ou écrivez sur WhatsApp.',
     },
     mobileBar: { call: 'Appeler', download: 'Télécharger' },
     contact: {
@@ -610,7 +686,7 @@ const fr: typeof en = {
     },
     privacy: {
       title: 'Politique de confidentialité',
-      metaDescription: 'Ce que BaraLink collecte, pourquoi, avec qui c’est partagé, et vos choix — statistiques d’utilisation et messages de contact compris.',
+      metaDescription: 'Ce que BaraLink collecte, pourquoi, avec qui c’est partagé, et vos choix : statistiques d’utilisation et messages de contact compris.',
       updated: 'Dernière mise à jour : 17 octobre 2026',
       intro: 'Votre vie privée est importante pour nous. Cette page explique ce que BaraLink collecte, pourquoi, avec qui c’est partagé et les choix dont vous disposez.',
       sections: [
@@ -728,13 +804,13 @@ const fr: typeof en = {
       metaDescription: 'Comment supprimer votre compte BaraLink et vos données personnelles depuis l’application mobile ou en contactant notre équipe.',
       updated: 'Dernière mise à jour : 18 octobre 2026',
       intro: 'Vous pouvez supprimer votre compte BaraLink à tout moment directement depuis l’application mobile, ou en faisant la demande à notre support si vous n’avez plus accès à l’application.',
-      inAppTitle: 'Option 1 — Supprimer directement dans l’application (immédiat)',
+      inAppTitle: 'Option 1 : Supprimer directement dans l’application (immédiat)',
       inAppSteps: [
         'Ouvrez l’application BaraLink et connectez-vous à votre compte.',
         'Allez dans l’onglet Profil puis appuyez sur Paramètres.',
         'Descendez jusqu’à la section Compte en bas de l’écran, appuyez sur « Supprimer le compte », puis confirmez.',
       ],
-      webTitle: 'Option 2 — Demander la suppression sans l’application',
+      webTitle: 'Option 2 : Demander la suppression sans l’application',
       webBody: 'Si vous avez désinstallé l’application ou ne pouvez plus vous connecter, envoyez-nous une demande via notre formulaire de contact ou appelez-nous depuis le numéro de téléphone lié à votre compte. Nous vérifierons que vous êtes bien le titulaire du compte et procéderons à la suppression.',
       webButton: 'Ouvrir le formulaire de contact',
       whatHappensTitle: 'Ce qui est supprimé et ce qui est conservé',

@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512"><defs>
+<linearGradient id="blue" x1="0" y1="0" x2=".95" y2="1"><stop stop-color="#5656FF"/><stop offset=".48" stop-color="#1A1AE6"/><stop offset="1" stop-color="#0A0A9F"/></linearGradient>
+<linearGradient id="blueSide" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#1515AF"/><stop offset="1" stop-color="#080874"/></linearGradient>
+<linearGradient id="gold" x1=".1" y1="0" x2=".9" y2="1"><stop stop-color="#FFE569"/><stop offset=".5" stop-color="#F5C518"/><stop offset="1" stop-color="#CD9300"/></linearGradient>
+<linearGradient id="goldSide" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#DDA300"/><stop offset="1" stop-color="#9C6C00"/></linearGradient>
+<linearGradient id="metal" x1="0" y1="0" x2="1" y2=".9"><stop stop-color="#FFFFFF"/><stop offset=".35" stop-color="#DCE4EE"/><stop offset=".72" stop-color="#9AA9B9"/><stop offset="1" stop-color="#F2F5FA"/></linearGradient>
+<linearGradient id="metalSide" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#8798AC"/><stop offset="1" stop-color="#5C6D83"/></linearGradient>
+<linearGradient id="dark" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#334156"/><stop offset="1" stop-color="#10192D"/></linearGradient>
+<linearGradient id="cream" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#FFFDF5"/><stop offset="1" stop-color="#E7EAF2"/></linearGradient>
+<linearGradient id="skinny" x1="0" y1="0" x2=".7" y2="1"><stop stop-color="#EBCDA0"/><stop offset="1" stop-color="#C59D6E"/></linearGradient>
+<filter id="soft"><feGaussianBlur stdDeviation="3"/></filter>
+</defs>
+<path d="M194 179h121q24 0 27 26l15 149q2 21-19 23H180q-21-3-18-24l15-148q3-26 17-26Z" fill="url(#blueSide)"/>
+<path d="M182 171h121q23 0 26 26l16 146q3 22-18 22H168q-20-2-18-24l16-144q2-26 16-26Z" fill="url(#blue)"/>
+<path d="M195 164h96v-31h-96Z" fill="url(#metalSide)"/><path d="M189 153h93v-28h-93Z" fill="url(#metal)"/>
+<path d="M209 120h25v-24q0-10 10-10h70v21h-69v21h-36Z" fill="url(#metalSide)"/>
+<path d="M202 114h25V90q0-10 10-10h69v19h-69v21h-35Z" fill="url(#metal)"/>
+<path d="M306 84h39v18h-39Z" fill="url(#gold)"/>
+<path d="M162 318h185" stroke="#7272FF" stroke-width="8" opacity=".55"/>
+<path d="M191 205q-9 44-10 110" stroke="#9999FF" stroke-width="7" opacity=".7" stroke-linecap="round"/>
+<path d="M252 222q-26 19-23 40t25 24q25-3 25-24t-27-40Z" fill="url(#gold)"/>
+<path d="M263 230q-16 33-29 39" stroke="#FFF0A7" stroke-width="5" stroke-linecap="round"/>
+<path d="M344 287q24 5 36 27l-11 51q-27 17-60 9l-15-33q9-41 50-54Z" fill="url(#metalSide)"/>
+<path d="M332 279q25 6 39 28l-14 50q-27 16-62 8l-13-36q10-37 50-50Z" fill="url(#cream)"/>
+<path d="M293 324q41 12 67-9" fill="none" stroke="#C3CAD7" stroke-width="8"/>
+</svg>

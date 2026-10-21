@@ -2,15 +2,16 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Header from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { Reveal } from "@/components/motion/Reveal";
 import { Hero } from "@/components/sections/Hero";
-import { About } from "@/components/sections/About";
 import { HowItWorks } from "@/components/sections/HowItWorks";
-import { Contact } from "@/components/sections/Contact";
-import { Audiences } from "@/components/sections/Audiences";
 import { Services } from "@/components/sections/Services";
+import { Audiences } from "@/components/sections/Audiences";
+import { Payment } from "@/components/sections/Payment";
+import { About } from "@/components/sections/About";
 import { Faq } from "@/components/sections/Faq";
+import { Contact } from "@/components/sections/Contact";
 import { FinalCta } from "@/components/sections/FinalCta";
-import { QuickActions } from "@/components/sections/QuickActions";
 import { dictionaries } from "@/lib/i18n/dictionaries";
 import { SITE_URL, alternatesFor, hasLocale } from "@/lib/i18n/locales";
 import { PHONES, SOCIAL_LINKS } from "@/lib/contact";
@@ -88,16 +89,17 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
       <Header />
       <main>
         <Hero />
-        <QuickActions />
         <HowItWorks />
-        <Audiences />
         <Services />
+        <Audiences />
+        <Payment />
         <About />
         <Faq />
         <Contact />
         <FinalCta />
       </main>
       <Footer />
+      <Reveal />
     </>
   );
 }

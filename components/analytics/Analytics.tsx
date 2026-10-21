@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { useCallback, useEffect, useState, useSyncExternalStore } from 'react';
 import { useI18n } from '@/lib/i18n/I18nProvider';
+import { Button } from '@/components/ui/Button';
 import {
   CONSENT_OPEN_EVENT,
   GTM_ID,
@@ -87,14 +88,14 @@ export function Analytics() {
       aria-modal="false"
       aria-labelledby="consent-title"
       aria-describedby="consent-body"
-      className="fixed inset-x-0 bottom-0 z-[60] border-t border-slate-200 bg-white px-4 py-4 shadow-[0_-4px_16px_rgba(15,23,42,0.08)] sm:px-6"
+      className="fixed inset-x-0 bottom-0 z-[60] bg-white px-5 py-4"
     >
       <div className="mx-auto flex max-w-5xl flex-col gap-4 md:flex-row md:items-center md:justify-between">
-        <div className="text-sm text-slate-700">
-          <p id="consent-title" className="font-semibold text-slate-900">
+        <div className="t-ui max-w-[68ch] text-ink-soft">
+          <p id="consent-title" className="font-semibold text-ink">
             {t.consent.title}
           </p>
-          <p id="consent-body" className="mt-1 leading-6">
+          <p id="consent-body" className="mt-1">
             {t.consent.body}{' '}
             <Link href={href('/privacy#analytics')} className="font-medium text-primary underline underline-offset-2">
               {t.consent.privacyLink}
@@ -103,24 +104,16 @@ export function Analytics() {
         </div>
         {/* Equal buttons: refusing is as easy as accepting. */}
         <div className="flex shrink-0 gap-3">
-          <button
-            type="button"
-            onClick={() => decide('denied')}
-            className="min-h-11 flex-1 rounded-full border border-slate-300 px-6 py-2.5 text-sm font-semibold text-slate-900 transition hover:border-slate-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary md:flex-none"
-          >
+          <Button variant="secondary" onClick={() => decide('denied')}>
             {t.consent.refuse}
-          </button>
-          <button
-            type="button"
-            onClick={() => decide('granted')}
-            className="min-h-11 flex-1 rounded-full border border-slate-300 px-6 py-2.5 text-sm font-semibold text-slate-900 transition hover:border-slate-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary md:flex-none"
-          >
+          </Button>
+          <Button variant="secondary" onClick={() => decide('granted')}>
             {t.consent.accept}
-          </button>
+          </Button>
         </div>
       </div>
       {choice && (
-        <p className="mx-auto mt-2 max-w-5xl text-xs text-slate-500">
+        <p className="t-ui mx-auto mt-2 max-w-5xl text-ink-soft">
           {choice === 'granted' ? t.consent.currentlyAccepted : t.consent.currentlyRefused}
         </p>
       )}

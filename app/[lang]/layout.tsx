@@ -51,8 +51,10 @@ export default async function RootLayout({ children, params }: LayoutProps<"/[la
   const { lang } = await params;
   if (!hasLocale(lang)) notFound();
   return (
-    <html lang={lang} className={`${instrumentSans.variable} h-full antialiased`}>
-      <body className="min-h-full bg-white text-slate-900">
+    <html lang={lang} suppressHydrationWarning className={`${instrumentSans.variable} h-full antialiased`}>
+      <body className="min-h-full bg-white text-ink">
+        {/* Enables the reveal animation only when JavaScript runs; without it everything shows. */}
+        <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js');" }} />
         <I18nProvider locale={lang}>
           <Invitation />
           {children}

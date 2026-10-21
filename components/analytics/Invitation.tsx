@@ -31,18 +31,18 @@ export function Invitation() {
 
   if (!invitation || hidden) return null;
   return (
-    <div role="status" className="bg-accent text-slate-950">
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-2.5 text-sm sm:px-6 lg:px-8">
-        <p>
+    <div role="status" className="bg-accent text-ink">
+      <div className="shell flex items-center justify-between gap-4 py-3">
+        <p className="t-ui">
           {t.invitation.yourCode}{' '}
-          <strong className="rounded bg-white/70 px-2 py-0.5 font-mono tracking-widest">{invitation.code}</strong>{' '}
-          — {t.invitation.enterIt}
+          <strong className="rounded-lg bg-white/70 px-2.5 py-0.5 tracking-[0.18em]">{invitation.code}</strong>{' '}
+          {t.invitation.enterIt}
         </p>
         <button
           type="button"
           onClick={() => setHidden(true)}
           aria-label={t.invitation.close}
-          className="min-h-9 min-w-9 rounded-full text-lg leading-none transition hover:bg-white/50"
+          className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl text-xl leading-none transition-colors duration-200 hover:bg-white/50"
         >
           ×
         </button>

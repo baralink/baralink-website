@@ -1,55 +1,22 @@
 'use client';
 
-import Link from 'next/link';
-import { ArrowLeft, ChevronRight, FileText } from 'lucide-react';
 import { useI18n } from '@/lib/i18n/I18nProvider';
+import { LegalArticle, LegalBack, LegalParagraph, LegalSection } from '@/components/legal/LegalArticle';
 
 export function TermsContent() {
-  const { t, href } = useI18n();
+  const { t } = useI18n();
   const terms = t.terms;
+
   return (
-    <article className="mx-auto max-w-4xl px-6 py-12 lg:px-8 lg:py-16">
-      <nav aria-label="Breadcrumb" className="mb-6 flex items-center gap-2 text-sm font-medium text-slate-500">
-        <Link href={href('/')} className="transition hover:text-primary">
-          {t.nav.home}
-        </Link>
-        <ChevronRight className="h-4 w-4 text-slate-400" aria-hidden="true" />
-        <span className="text-slate-900" aria-current="page">
-          {terms.title}
-        </span>
-      </nav>
-      <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-[0_8px_30px_rgba(15,23,42,0.05)] sm:p-12">
-        <div className="inline-flex items-center gap-2 rounded-full bg-primary-light px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider text-primary">
-          <FileText className="h-4 w-4" aria-hidden="true" />
-          BaraLink
-        </div>
-        <h1 className="mt-4 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">{terms.title}</h1>
-        <p className="mt-2 text-sm text-slate-500">{terms.updated}</p>
-        <p className="mt-6 text-base leading-7 text-slate-700">{terms.intro}</p>
-
-        <div className="mt-10 space-y-8 border-t border-slate-100 pt-8">
-          {terms.sections.map((section) => (
-            <section key={section.id} id={section.id} className="scroll-mt-28">
-              <h2 className="text-xl font-semibold text-slate-950">{section.title}</h2>
-              {section.body.map((paragraph) => (
-                <p key={paragraph.slice(0, 32)} className="mt-3 text-base leading-7 text-slate-700">
-                  {paragraph}
-                </p>
-              ))}
-            </section>
+    <LegalArticle title={terms.title} updated={terms.updated} intro={terms.intro}>
+      {terms.sections.map((section) => (
+        <LegalSection key={section.id} id={section.id} title={section.title}>
+          {section.body.map((paragraph) => (
+            <LegalParagraph key={paragraph.slice(0, 32)}>{paragraph}</LegalParagraph>
           ))}
-        </div>
-
-        <div className="mt-12 border-t border-slate-100 pt-8">
-          <Link
-            href={href('/')}
-            className="inline-flex items-center gap-2 font-semibold text-primary transition hover:text-primary-dark"
-          >
-            <ArrowLeft className="h-4 w-4" aria-hidden="true" />
-            {terms.back}
-          </Link>
-        </div>
-      </div>
-    </article>
+        </LegalSection>
+      ))}
+      <LegalBack label={terms.back} />
+    </LegalArticle>
   );
 }

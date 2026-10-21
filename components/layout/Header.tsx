@@ -1,73 +1,19 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import { MapPin, Menu, Phone, X } from 'lucide-react';
-import Link from 'next/link';
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
+import { ArrowUpRight, Menu } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 import { useI18n } from '@/lib/i18n/I18nProvider';
 import type { Locale } from '@/lib/i18n/locales';
 import { PHONES, telHref } from '@/lib/contact';
-import { CallButton } from '@/components/ui/CallButton';
+import { Sheet } from '@/components/ui/Sheet';
+import { cn } from '@/lib/utils';
 
-function Flag({ locale }: { locale: Locale }) {
-  if (locale === 'fr') {
-    // France tricolor
-    return (
-      <svg className="h-3.5 w-5 shrink-0 rounded-[2px]" viewBox="0 0 9 6" aria-hidden="true">
-        <rect width="3" height="6" x="0" fill="#0055A4" />
-        <rect width="3" height="6" x="3" fill="#fff" />
-        <rect width="3" height="6" x="6" fill="#EF4135" />
-      </svg>
-    );
-  }
-  // United Kingdom (English)
-  return (
-    <svg className="h-3.5 w-5 shrink-0 rounded-[2px]" viewBox="0 0 60 30" aria-hidden="true">
-      <clipPath id="uk-clip">
-        <rect width="60" height="30" />
-      </clipPath>
-      <g clipPath="url(#uk-clip)">
-        <rect width="60" height="30" fill="#012169" />
-        <path d="M0,0 60,30 M60,0 0,30" stroke="#fff" strokeWidth="6" />
-        <path d="M0,0 60,30 M60,0 0,30" stroke="#C8102E" strokeWidth="4" />
-        <path d="M30,0 V30 M0,15 H60" stroke="#fff" strokeWidth="10" />
-        <path d="M30,0 V30 M0,15 H60" stroke="#C8102E" strokeWidth="6" />
-      </g>
-    </svg>
-  );
-}
+const SECTIONS = ['home', 'services', 'how-it-works', 'for-clients', 'for-workers', 'about', 'faq', 'contact'];
 
-function LanguageSwitcher({ className = '' }: { className?: string }) {
-  const { locale, setLocale } = useI18n();
-  const options: Locale[] = ['fr', 'en'];
-  return (
-    <div
-      className={`inline-flex items-center rounded-full border border-slate-200 bg-slate-50 p-0.5 text-xs font-semibold ${className}`}
-    >
-      {options.map((opt) => (
-        <button
-          key={opt}
-          type="button"
-          onClick={() => setLocale(opt)}
-          aria-pressed={locale === opt}
-          className={`flex items-center gap-1.5 rounded-full px-2.5 py-1 uppercase transition-colors ${
-            locale === opt
-              ? 'bg-[var(--color-primary)] text-white'
-              : 'text-slate-600 hover:text-slate-900'
-          }`}
-        >
-          <Flag locale={opt} />
-          {opt}
-        </button>
-      ))}
-    </div>
-  );
-}
-
-const SECTIONS = ['home', 'how-it-works', 'for-clients', 'for-workers', 'about', 'faq', 'contact'];
-
-/** The section in view, so the menu shows where the visitor is. */
+/** The section in view, so the top navigation shows where the visitor is. */
 function useActiveSection() {
   const [active, setActive] = useState('home');
   useEffect(() => {
@@ -86,32 +32,80 @@ function useActiveSection() {
   return active;
 }
 
+function LanguageSwitcher({ label, className }: { label: string; className?: string }) {
+  const { locale, setLocale } = useI18n();
+  const options: Locale[] = ['fr', 'en'];
+  return (
+    <div className={cn('inline-flex items-center', className)} role="group" aria-label={label}>
+      {options.map((option, index) => (
+        <span key={option} className="inline-flex items-center">
+          {index > 0 && (
+            <span aria-hidden="true" className="t-small text-white/20">
+              /
+            </span>
+          )}
+          <button
+            type="button"
+            onClick={() => setLocale(option)}
+            aria-pressed={locale === option}
+            className={cn(
+              't-small inline-flex min-h-10 items-center px-2 font-semibold uppercase transition-colors duration-200',
+              locale === option ? 'text-white' : 'text-white/70 hover:text-white',
+            )}
+          >
+            {option}
+          </button>
+        </span>
+      ))}
+    </div>
+  );
+}
+
+function HeaderAction({
+  href,
+  label,
+  placement,
+  full = false,
+  onClick,
+}: {
+  href: string;
+  label: string;
+  placement: 'header' | 'menu';
+  full?: boolean;
+  onClick?: () => void;
+}) {
+  return (
+    <span className={cn('on-accent inline-flex', full && 'w-full')}>
+      <a
+        href={href}
+        onClick={onClick}
+        data-analytics="download_click"
+        data-store="any"
+        data-placement={placement}
+        className={cn(
+          'inline-flex min-h-12 items-center gap-3 rounded-full bg-accent pl-6 pr-1.5 text-[15px] font-semibold text-ink transition-colors duration-200 hover:bg-accent-dark',
+          full ? 'w-full justify-between' : '',
+        )}
+      >
+        <span>{label}</span>
+        <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-ink text-white">
+          <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+        </span>
+      </a>
+    </span>
+  );
+}
+
 export default function Header() {
   const { t, href } = useI18n();
   const pathname = usePathname();
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const active = useActiveSection();
   const isHomeRoute = pathname === '/' || pathname === '/fr' || pathname === '/en';
 
-  // Lock body scrolling when the mobile menu is open
-  useEffect(() => {
-    document.body.style.overflow = mobileMenuOpen ? 'hidden' : 'unset';
-    return () => {
-      document.body.style.overflow = 'unset';
-    };
-  }, [mobileMenuOpen]);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8);
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
-
-  // Anchors of the home page: from another page (/privacy) they lead back to it.
+  // Anchors live on the home page: from another page (/privacy) they lead back to it.
   const onHome = (anchor: string) => `${href('/')}${anchor}`;
-  const navLinks = [
+  const navigation = [
     { name: t.nav.howItWorks, id: 'how-it-works' },
     { name: t.nav.forClients, id: 'for-clients' },
     { name: t.nav.forWorkers, id: 'for-workers' },
@@ -119,118 +113,127 @@ export default function Header() {
     { name: t.nav.faq, id: 'faq' },
     { name: t.nav.contact, id: 'contact' },
   ];
+  const sheetNavigation = [{ name: t.nav.services, id: 'services' }, ...navigation];
   const isActive = (id: string) => isHomeRoute && active === id;
 
   return (
-    <div className={`sticky top-0 z-50 w-full transition-shadow ${scrolled ? 'shadow-md' : 'shadow-sm'}`}>
-      {/* Clean utility bar */}
-      <div className="border-b border-white/10 bg-primary px-3 py-1.5 text-xs text-white/95 sm:px-4 lg:px-6">
-        <div className="mx-auto flex max-w-7xl items-center justify-center gap-4 sm:justify-between">
-          <p className="flex items-center gap-1.5 truncate font-medium">
-            <MapPin className="h-3.5 w-3.5 shrink-0 text-accent" aria-hidden="true" />
-            <span>{t.announcement}</span>
-          </p>
-          <div className="hidden items-center gap-4 font-semibold md:flex">
-            {PHONES.map((phone) => (
-              <a
-                key={phone}
-                href={telHref(phone)}
-                data-analytics="contact_click"
-                data-method="phone"
-                className="inline-flex items-center gap-1.5 text-white/90 transition hover:text-accent"
-              >
-                <Phone className="h-3 w-3 text-accent" aria-hidden="true" />
-                {phone}
-              </a>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      <header className="w-full border-b border-slate-100 bg-white/95 text-[var(--foreground)] backdrop-blur-md">
-        <div className="mx-auto max-w-7xl px-3 sm:px-4 lg:px-6">
-          <div className="flex h-16 items-center justify-between gap-4 sm:h-20">
-            <Link href={onHome('#home')} className="group flex shrink-0 items-center" aria-label="BaraLink">
+    <div className="sticky top-0 z-50">
+      <header className="on-cobalt bg-primary text-white">
+        <div className="shell">
+          <div className="relative flex h-[72px] items-center justify-between gap-6 xl:h-[84px]">
+            <Link href={onHome('#home')} className="flex shrink-0 items-center" aria-label="BaraLink">
               <Image
-                src="/logos/BaraLink-Logo-white.png"
-                alt="BaraLink"
-                width={300}
-                height={330}
-                className="h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-105 sm:h-20"
+                src="/logos/baralink-wordmark.png"
+                alt=""
+                width={1200}
+                height={331}
                 priority
+                className="h-7 w-auto brightness-0 invert md:h-8 lg:h-9"
               />
             </Link>
 
-            <nav className="hidden items-center gap-7 text-sm font-semibold xl:flex">
-              {navLinks.map((link) => (
+            <nav
+              aria-label={t.nav.menu}
+              className="absolute top-1/2 left-1/2 hidden w-max -translate-x-1/2 -translate-y-1/2 items-center rounded-full bg-white/10 p-1 whitespace-nowrap ring-1 ring-white/15 xl:flex"
+            >
+              {navigation.map((link) => (
                 <Link
                   key={link.id}
                   href={onHome(`#${link.id}`)}
                   aria-current={isActive(link.id) ? 'true' : undefined}
-                  className={`relative py-1 transition-colors duration-200 ${
-                    isActive(link.id) ? 'text-primary' : 'text-slate-700 hover:text-primary'
-                  }`}
+                  className={cn(
+                    't-small rounded-full px-2.5 py-2.5 leading-5 font-medium transition-colors duration-200',
+                    isActive(link.id) ? 'text-white' : 'text-white/70 hover:text-white',
+                  )}
                 >
                   {link.name}
-                  {isActive(link.id) && (
-                    <span className="absolute -bottom-0.5 left-0 h-[2px] w-full rounded-full bg-primary" />
-                  )}
                 </Link>
               ))}
             </nav>
 
-            <div className="flex items-center gap-2 sm:gap-3">
-              <div className="hidden sm:block">
-                <LanguageSwitcher />
+            <div className="flex items-center gap-2 md:gap-4">
+              <div className="hidden md:block">
+                <LanguageSwitcher label={t.nav.language} />
               </div>
-              <CallButton />
+              <div className="hidden sm:block">
+                <HeaderAction href={onHome('#download')} label={t.nav.download} placement="header" />
+              </div>
               <button
-                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 type="button"
-                className="relative z-50 rounded-xl p-2 text-slate-700 transition-colors hover:bg-slate-100 xl:hidden"
+                onClick={() => setMenuOpen(true)}
                 aria-label={t.nav.menu}
-                aria-expanded={mobileMenuOpen}
+                aria-haspopup="dialog"
+                className="-mr-2 inline-flex h-11 w-11 items-center justify-center rounded-full text-white transition-colors duration-200 hover:bg-white/10 xl:hidden"
               >
-                {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+                <Menu className="h-6 w-6" aria-hidden="true" />
               </button>
             </div>
           </div>
         </div>
-
-        {/* Mobile menu */}
-        <div
-          className={`fixed inset-0 z-40 bg-slate-900/40 backdrop-blur-sm transition-opacity duration-300 xl:hidden ${
-            mobileMenuOpen ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-0'
-          }`}
-          onClick={() => setMobileMenuOpen(false)}
-          aria-hidden="true"
-        />
-        <div
-          className={`absolute left-0 top-full z-40 w-full transform border-b border-slate-200/80 bg-white shadow-2xl transition-all duration-300 ease-in-out xl:hidden ${
-            mobileMenuOpen ? 'visible translate-y-0 opacity-100' : 'invisible -translate-y-4 opacity-0'
-          }`}
-        >
-          <div className="mx-auto max-w-7xl space-y-1 px-6 py-5">
-            {navLinks.map((link) => (
-              <Link
-                key={link.id}
-                href={onHome(`#${link.id}`)}
-                className={`flex items-center justify-between rounded-xl px-4 py-3 text-base font-semibold transition-all duration-200 ${
-                  isActive(link.id)
-                    ? 'bg-primary/10 text-primary'
-                    : 'text-slate-700 hover:bg-slate-50 hover:text-primary'
-                }`}
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                {link.name}
-              </Link>
-            ))}
-            <div className="mt-3 border-t border-slate-100 pt-4 sm:hidden">
-              <LanguageSwitcher />
-            </div>
-          </div>
-        </div>
       </header>
+
+      <Sheet open={menuOpen} onClose={() => setMenuOpen(false)} labelledBy="site-menu-title">
+        <div className="flex items-center justify-between">
+          <h2 id="site-menu-title" className="t-lead font-semibold">
+            {t.nav.menu}
+          </h2>
+          <button
+            type="button"
+            onClick={() => setMenuOpen(false)}
+            className="-mr-2 inline-flex h-11 w-11 items-center justify-center rounded-full text-white/75 transition-colors duration-200 hover:bg-white/10 hover:text-white"
+          >
+            <span className="text-2xl leading-none" aria-hidden="true">
+              ×
+            </span>
+            <span className="visually-hidden">{t.invitation.close}</span>
+          </button>
+        </div>
+
+        <nav aria-label={t.nav.menu} className="mt-8 flex flex-col">
+          {sheetNavigation.map((link) => (
+            <Link
+              key={link.id}
+              href={onHome(`#${link.id}`)}
+              onClick={() => setMenuOpen(false)}
+              aria-current={isActive(link.id) ? 'true' : undefined}
+              className={cn(
+                'py-3 text-[19px] leading-6 font-medium transition-colors duration-200',
+                isActive(link.id) ? 'text-white' : 'text-white/75 hover:text-white',
+              )}
+            >
+              {link.name}
+            </Link>
+          ))}
+        </nav>
+
+        <div className="mt-6">
+          <LanguageSwitcher label={t.nav.language} />
+        </div>
+
+        <div className="mt-6">
+          <HeaderAction
+            href={onHome('#download')}
+            label={t.hero.download}
+            placement="menu"
+            full
+            onClick={() => setMenuOpen(false)}
+          />
+        </div>
+
+        <div className="mt-8 flex flex-col gap-2">
+          {PHONES.map((phone) => (
+            <a
+              key={phone}
+              href={telHref(phone)}
+              data-analytics="contact_click"
+              data-method="phone"
+              className="t-ui text-white/70 transition-colors duration-200 hover:text-white"
+            >
+              {phone}
+            </a>
+          ))}
+        </div>
+      </Sheet>
     </div>
   );
 }
