@@ -287,7 +287,7 @@ const en = {
           id: 'sharing',
           title: 'Who it is shared with',
           body: [
-            'We never sell your data. Your information is shared with the users you deal with on BaraLink, and with the providers that run the service for us: payments (LengoPay), SMS (Nimba SMS), email (Resend), file storage (Cloudinary), hosting (Railway) and, if you allow it, usage statistics (Google).',
+            'We never sell your data. Your information is shared with the users you deal with on BaraLink, and with the providers that run the service for us: payments (LengoPay), SMS (Nimba SMS), email (Resend), file storage (Cloudinary), hosting (Railway), crash reports from the app (Google Firebase Crashlytics) and, if you allow it, usage statistics (Google).',
           ],
         },
         {
@@ -297,6 +297,13 @@ const en = {
             'On this website, Google Analytics is loaded only after you click "Accept". It then counts visits, the pages seen and clicks on the download, contact and social buttons, and the topic of a message sent with the contact form (never its content), and stores cookies (for example _ga) in your browser. If you click "Refuse", nothing is loaded. You can change your choice at any time with the "Cookies" link at the bottom of every page.',
             'In the app, Google Analytics for Firebase is used only if you answer "Allow" to the usage-statistics question. The app then sends which screens are used and the main steps (sign-up, posting a job, applying, paying). It identifies you with a random number, never your name, phone number or account number. You can withdraw at any time in Settings → Privacy.',
             'We use no advertising features: no ad personalisation, no Google signals. Statistics are kept 14 months. Google may process them outside Guinea, including in the United States.',
+          ],
+        },
+        {
+          id: 'crash-reports',
+          title: 'Crash reports (Firebase Crashlytics)',
+          body: [
+            'If the app crashes, a technical report is sent to Google Firebase Crashlytics so that we can find and fix the problem: the device model, the system and app versions, the time and the error itself. It does not include your name, phone number or account. Reports are sent only by the app published in the stores, not by this website.',
           ],
         },
         {
@@ -716,7 +723,7 @@ const fr: typeof en = {
           id: 'sharing',
           title: 'Partage',
           body: [
-            'Nous ne vendons jamais vos données. Vos informations sont partagées avec les utilisateurs avec qui vous interagissez sur BaraLink, et avec les prestataires qui font fonctionner le service : paiements (LengoPay), SMS (Nimba SMS), email (Resend), stockage de fichiers (Cloudinary), hébergement (Railway) et, si vous l’acceptez, statistiques d’utilisation (Google).',
+            'Nous ne vendons jamais vos données. Vos informations sont partagées avec les utilisateurs avec qui vous interagissez sur BaraLink, et avec les prestataires qui font fonctionner le service : paiements (LengoPay), SMS (Nimba SMS), email (Resend), stockage de fichiers (Cloudinary), hébergement (Railway), rapports de plantage de l’application (Google Firebase Crashlytics) et, si vous l’acceptez, statistiques d’utilisation (Google).',
           ],
         },
         {
@@ -726,6 +733,13 @@ const fr: typeof en = {
             'Sur ce site, Google Analytics n’est chargé qu’après un clic sur « Accepter ». Il compte alors les visites, les pages vues et les clics sur les boutons de téléchargement, de contact et des réseaux sociaux, et le sujet d’un message envoyé avec le formulaire de contact (jamais son contenu), et dépose des cookies (par exemple _ga) dans votre navigateur. Si vous cliquez sur « Refuser », rien n’est chargé. Vous pouvez changer d’avis à tout moment avec le lien « Cookies » en bas de chaque page.',
             'Dans l’application, Google Analytics pour Firebase n’est utilisé que si vous répondez « Autoriser » à la question sur les statistiques. L’application envoie alors les écrans utilisés et les étapes principales (inscription, publication d’une mission, candidature, paiement). Elle vous identifie par un numéro aléatoire, jamais par votre nom, votre téléphone ou votre numéro de compte. Vous pouvez retirer votre accord à tout moment dans Paramètres → Confidentialité.',
             'Nous n’utilisons aucune fonction publicitaire : ni personnalisation des annonces, ni signaux Google. Les statistiques sont conservées 14 mois. Google peut les traiter hors de Guinée, notamment aux États-Unis.',
+          ],
+        },
+        {
+          id: 'crash-reports',
+          title: 'Rapports de plantage (Firebase Crashlytics)',
+          body: [
+            'Si l’application plante, un rapport technique est envoyé à Google Firebase Crashlytics afin que nous puissions trouver et corriger le problème : le modèle de l’appareil, les versions du système et de l’application, l’heure et l’erreur elle-même. Il ne contient ni votre nom, ni votre numéro de téléphone, ni votre compte. Seule l’application publiée dans les stores envoie ces rapports, pas ce site.',
           ],
         },
         {
