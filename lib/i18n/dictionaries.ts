@@ -321,6 +321,17 @@ const en = {
           ],
         },
       ],
+      // Shown from the revamp phase given (lib/revamp.ts), before "Your rights".
+      revampSections: [
+        {
+          phase: 3,
+          id: 'cash-applications',
+          title: 'Cash applications',
+          body: [
+            'When you ask for cash by exception on this website, we keep your phone number, your message and the identity documents you send, privately (only the BaraLink team can open them), to decide on your request and keep a record of that decision.',
+          ],
+        },
+      ],
       back: 'Back to the home page',
     },
     terms: {
@@ -376,6 +387,102 @@ const en = {
           ],
         },
       ],
+      // Shown from the revamp phase given (lib/revamp.ts), after "Payments". Draft for the lawyer's review.
+      revampSections: [
+        {
+          phase: 1,
+          id: 'pricing-modes',
+          title: 'Fixed price or quotes',
+          body: [
+            'A client either sets a fixed price, which a worker accepts by applying, or asks workers for quotes. A quote shows the labour (travel included), the estimated materials and the duration. Only the labour is paid in the app and carries the fees and the commission; the client buys the materials directly.',
+            'If nobody applies to a fixed-price job within the time shown in the app, the client may raise the price or ask for quotes.',
+          ],
+        },
+        {
+          phase: 1,
+          id: 'extra-work',
+          title: 'Extra work',
+          body: [
+            'Extra work on a job already paid is proposed in the app by the client or the worker, with its price. The other party accepts or refuses it within the time shown; without an answer it is refused. Accepted extra work is paid in the app by the client before it starts, with the same fees and commission as the job, and follows the job for payout, refunds and disputes.',
+            'All the extra work on a job together cannot exceed the share of the job price shown in the app; beyond it, a new quote is needed.',
+          ],
+        },
+        {
+          phase: 1,
+          id: 'messages-before-selection',
+          title: 'Messages, comments and contact details',
+          body: [
+            'A worker who applies may send the client one first message; the client decides whether to open the conversation. Once it is open, they can exchange messages, photos and voice notes. Phone numbers, email addresses, links and the names of messaging apps are never allowed in messages, job descriptions, applications, comments, extra work or materials: such a text is not sent, a blocked message is recorded, and repeated attempts may lead to a restriction of the account.',
+            'While a job is open, workers and the client can comment on it, answer comments and like jobs and comments. Comments are public to BaraLink users: anyone can report one, and BaraLink may hide comments that break these terms.',
+          ],
+        },
+        {
+          phase: 2,
+          id: 'visits',
+          title: 'Visit before the quote',
+          body: [
+            'For work that must be seen first, a client may ask for a visit. The worker sets a visit fee, which may cover only the travel and stays within the ceiling shown in the app; the client may propose another amount once, and the worker accepts or declines. The visit is paid in the app before it takes place. BaraLink takes no fee or commission on it; the client pays the payment provider’s (LengoPay) fees, shown before paying, so the worker receives the visit fee in full.',
+            'After the visit the worker sends a quote; the visit fee is then paid to the worker and stays theirs, even if the client hires them, and is not deducted from the quote. The client accepts the quote within the time shown, or declines it; without an answer, the job opens again for other workers. If the worker does not come or withdraws before the visit, the client is refunded. If the client cannot be reached on site after two calls and 20 minutes of waiting, the visit fee is paid to the worker.',
+          ],
+        },
+        {
+          phase: 2,
+          id: 'materials',
+          title: 'Materials',
+          body: [
+            'The worker lists the materials needed; the client approves and buys them directly. Materials are never paid in the app and carry no fee or commission. When materials are missing, the worker gives the client a time to buy them, shown in the app. Past it, the worker may cancel the job with no penalty: the client is refunded in full if the work had not started; otherwise a dispute settles the part done.',
+          ],
+        },
+        {
+          phase: 2,
+          id: 'refunds',
+          title: 'Refunds and payment provider fees',
+          body: [
+            'A refund returns what the client paid to BaraLink, in full or in the share decided after a dispute. Fees charged by the payment provider (LengoPay) and paid by the client are never refunded; BaraLink pays the cost of sending the refund.',
+          ],
+        },
+        {
+          phase: 3,
+          id: 'cash',
+          title: 'Cash payments',
+          body: [
+            'A client and a worker who both meet the conditions shown in the app (jobs completed and paid in the app with different people, a job price under the limit, no open dispute or restriction), or who were accepted by exception, may settle a job in cash. The client then pays in the app, before the work, BaraLink’s fees (the client fee and the worker’s commission), and pays the worker the rest in cash.',
+            'After the work, the client and the worker each confirm in the app that the cash was paid; it is never confirmed automatically. If neither confirms within the time shown, both accounts are restricted (no new job, no new application) until the BaraLink team settles the matter. In a dispute, only the fees paid in the app can be refunded; BaraLink does not refund cash.',
+          ],
+        },
+      ],
+      back: 'Back to the home page',
+    },
+    // The cash application page (shown from REVAMP_PHASE 3). Draft for the lawyer's review.
+    cashApplication: {
+      title: 'Ask to pay or be paid in cash',
+      metaDescription: 'Ask BaraLink to settle jobs in cash before meeting the usual conditions, with an identity document.',
+      updated: 'Last updated: 29 October 2026',
+      intro:
+        'Cash is open to clients and workers who have completed several jobs paid in the app with different people. If you do not meet these conditions yet, you can ask for an exception here.',
+      body: [
+        'We send a code by SMS to the phone number of your BaraLink account. Then tell us why you ask for cash and send one to three identity documents (ID card, passport, residence card): a photo or a PDF, 10 MB at most each.',
+        'Your documents are kept private: only the BaraLink team can see them, to decide on your request. You will receive the answer in the app.',
+      ],
+      phoneLabel: 'Phone number of your BaraLink account',
+      sendCode: 'Send me a code',
+      codeSent: 'If this number has a BaraLink account, a code was sent to it by SMS.',
+      codeLabel: 'Code received by SMS',
+      messageLabel: 'Why do you ask for cash?',
+      documentsLabel: 'Identity documents',
+      documentsHint: 'One to three files: JPEG, PNG, WebP or PDF, 10 MB at most each.',
+      submit: 'Send my request',
+      sent: 'Your request was sent. The BaraLink team will answer in the app.',
+      errors: {
+        phone: 'Enter your phone number.',
+        code: 'The code is not right, or has expired. Ask for a new one.',
+        message: 'Say in a few words why you ask for cash.',
+        documents: 'Send one to three documents.',
+        documentType: 'Each document must be a photo (JPEG, PNG, WebP) or a PDF of 10 MB at most.',
+        waiting: 'A request of yours is already being reviewed.',
+        tooMany: 'Too many attempts. Try again in a little while.',
+        failed: 'The request could not be sent. Check your connection and try again.',
+      },
       back: 'Back to the home page',
     },
     deleteAccount: {
@@ -757,6 +864,16 @@ const fr: typeof en = {
           ],
         },
       ],
+      revampSections: [
+        {
+          phase: 3,
+          id: 'cash-applications',
+          title: 'Demandes de paiement en espèces',
+          body: [
+            'Lorsque vous demandez les espèces par exception sur ce site, nous conservons votre numéro de téléphone, votre message et les pièces d’identité envoyées, de façon privée (seule l’équipe BaraLink peut les ouvrir), pour décider de votre demande et garder la trace de cette décision.',
+          ],
+        },
+      ],
       back: 'Retour à l’accueil',
     },
     terms: {
@@ -811,6 +928,101 @@ const fr: typeof en = {
           ],
         },
       ],
+      // Affiché à partir de la phase donnée (lib/revamp.ts), après « Paiements ». Brouillon pour l’avocat.
+      revampSections: [
+        {
+          phase: 1,
+          id: 'pricing-modes',
+          title: 'Prix fixe ou devis',
+          body: [
+            'Le client fixe un prix, que le travailleur accepte en postulant, ou demande des devis aux travailleurs. Un devis indique la main-d’œuvre (déplacement compris), les matériaux estimés et la durée. Seule la main-d’œuvre est payée dans l’application et porte les frais et la commission ; le client achète les matériaux directement.',
+            'Si personne ne postule à une mission à prix fixe dans le délai affiché dans l’application, le client peut augmenter le prix ou demander des devis.',
+          ],
+        },
+        {
+          phase: 1,
+          id: 'extra-work',
+          title: 'Travail supplémentaire',
+          body: [
+            'Un travail supplémentaire sur une mission déjà payée est proposé dans l’application par le client ou le travailleur, avec son prix. L’autre partie l’accepte ou le refuse dans le délai affiché ; sans réponse, il est refusé. Accepté, il est payé dans l’application par le client avant de commencer, avec les mêmes frais et la même commission que la mission, et suit la mission pour le versement, les remboursements et les litiges.',
+            'L’ensemble des travaux supplémentaires d’une mission ne peut dépasser la part du prix affichée dans l’application ; au-delà, un nouveau devis est nécessaire.',
+          ],
+        },
+        {
+          phase: 1,
+          id: 'messages-before-selection',
+          title: 'Messages, commentaires et coordonnées',
+          body: [
+            'Un travailleur qui postule peut envoyer un premier message au client ; le client décide d’ouvrir ou non la conversation. Une fois ouverte, ils peuvent échanger messages, photos et notes vocales. Les numéros de téléphone, adresses e-mail, liens et noms d’applications de messagerie ne sont jamais autorisés dans les messages, descriptions de mission, candidatures, commentaires, travaux supplémentaires ou matériaux : un tel texte n’est pas envoyé, un message bloqué est enregistré, et des tentatives répétées peuvent entraîner une restriction du compte.',
+            'Tant qu’une mission est ouverte, les travailleurs et le client peuvent la commenter, répondre aux commentaires et aimer missions et commentaires. Les commentaires sont visibles des utilisateurs de BaraLink : chacun peut en signaler un, et BaraLink peut masquer ceux qui enfreignent ces conditions.',
+          ],
+        },
+        {
+          phase: 2,
+          id: 'visits',
+          title: 'Visite avant le devis',
+          body: [
+            'Pour un travail qui doit d’abord être vu, le client peut demander une visite. Le travailleur fixe des frais de visite, qui peuvent couvrir seulement le déplacement et restent dans le plafond affiché dans l’application ; le client peut proposer une seule fois un autre montant, que le travailleur accepte ou refuse. La visite est payée dans l’application avant d’avoir lieu. BaraLink ne prend ni frais ni commission sur la visite ; le client paie les frais du prestataire de paiement (LengoPay), affichés avant le paiement, afin que le travailleur reçoive l’intégralité des frais de visite.',
+            'Après la visite, le travailleur envoie un devis ; les frais de visite lui sont alors versés et lui restent acquis, même si le client le retient, sans être déduits du devis. Le client accepte le devis dans le délai affiché, ou le refuse ; sans réponse, la mission est de nouveau ouverte aux autres travailleurs. Si le travailleur ne vient pas ou se désiste avant la visite, le client est remboursé. Si le client reste injoignable sur place après deux appels et 20 minutes d’attente, les frais de visite sont versés au travailleur.',
+          ],
+        },
+        {
+          phase: 2,
+          id: 'materials',
+          title: 'Matériaux',
+          body: [
+            'Le travailleur liste les matériaux nécessaires ; le client les valide et les achète directement. Les matériaux ne sont jamais payés dans l’application et ne portent ni frais ni commission. Lorsque des matériaux manquent, le travailleur donne au client un délai pour les acheter, affiché dans l’application. Passé ce délai, le travailleur peut annuler la mission sans pénalité : le client est remboursé intégralement si le travail n’avait pas commencé ; sinon, un litige règle la part réalisée.',
+          ],
+        },
+        {
+          phase: 2,
+          id: 'refunds',
+          title: 'Remboursements et frais du prestataire de paiement',
+          body: [
+            'Un remboursement rend au client ce qu’il a payé à BaraLink, en totalité ou selon la part décidée après un litige. Les frais facturés par le prestataire de paiement (LengoPay) et payés par le client ne sont jamais remboursés ; BaraLink prend en charge le coût de l’envoi du remboursement.',
+          ],
+        },
+        {
+          phase: 3,
+          id: 'cash',
+          title: 'Paiements en espèces',
+          body: [
+            'Un client et un travailleur qui remplissent tous deux les conditions affichées dans l’application (missions réalisées et payées dans l’application avec des personnes différentes, prix de la mission sous la limite, aucun litige ni restriction en cours), ou qui ont été acceptés par exception, peuvent régler une mission en espèces. Le client paie alors dans l’application, avant le travail, les frais BaraLink (frais client et commission du travailleur), puis le reste au travailleur en espèces.',
+            'Après le travail, le client et le travailleur confirment chacun dans l’application que les espèces ont été payées ; ce n’est jamais confirmé automatiquement. Si aucun ne confirme dans le délai affiché, les deux comptes sont restreints (ni nouvelle mission, ni nouvelle candidature) jusqu’à ce que l’équipe BaraLink règle la situation. En cas de litige, seuls les frais payés dans l’application peuvent être remboursés ; BaraLink ne rembourse pas d’espèces.',
+          ],
+        },
+      ],
+      back: 'Retour à l’accueil',
+    },
+    cashApplication: {
+      title: 'Demander à payer ou être payé en espèces',
+      metaDescription: 'Demander à BaraLink de régler des missions en espèces avant de remplir les conditions habituelles, avec une pièce d’identité.',
+      updated: 'Dernière mise à jour : 29 octobre 2026',
+      intro:
+        'Les espèces sont ouvertes aux clients et travailleurs qui ont réalisé plusieurs missions payées dans l’application avec des personnes différentes. Si vous ne remplissez pas encore ces conditions, vous pouvez demander une exception ici.',
+      body: [
+        'Nous envoyons un code par SMS au numéro de téléphone de votre compte BaraLink. Dites-nous ensuite pourquoi vous demandez les espèces et envoyez une à trois pièces d’identité (carte d’identité, passeport, carte de séjour) : une photo ou un PDF, 10 Mo au plus chacun.',
+        'Vos documents restent privés : seule l’équipe BaraLink peut les voir, pour décider de votre demande. Vous recevrez la réponse dans l’application.',
+      ],
+      phoneLabel: 'Numéro de téléphone de votre compte BaraLink',
+      sendCode: 'M’envoyer un code',
+      codeSent: 'Si ce numéro a un compte BaraLink, un code lui a été envoyé par SMS.',
+      codeLabel: 'Code reçu par SMS',
+      messageLabel: 'Pourquoi demandez-vous les espèces ?',
+      documentsLabel: 'Pièces d’identité',
+      documentsHint: 'Un à trois fichiers : JPEG, PNG, WebP ou PDF, 10 Mo au plus chacun.',
+      submit: 'Envoyer ma demande',
+      sent: 'Votre demande est envoyée. L’équipe BaraLink vous répondra dans l’application.',
+      errors: {
+        phone: 'Saisissez votre numéro de téléphone.',
+        code: 'Le code n’est pas bon, ou a expiré. Demandez-en un nouveau.',
+        message: 'Dites en quelques mots pourquoi vous demandez les espèces.',
+        documents: 'Envoyez une à trois pièces.',
+        documentType: 'Chaque pièce doit être une photo (JPEG, PNG, WebP) ou un PDF de 10 Mo au plus.',
+        waiting: 'Une demande de votre part est déjà en cours d’examen.',
+        tooMany: 'Trop d’essais. Réessayez dans un moment.',
+        failed: 'La demande n’a pas pu être envoyée. Vérifiez votre connexion et réessayez.',
+      },
       back: 'Retour à l’accueil',
     },
     deleteAccount: {

@@ -76,9 +76,18 @@ export function applyConsent(choice: ConsentChoice) {
   gtag('consent', 'update', { analytics_storage: choice });
 }
 
-/** Send one of the plan's website events (§4.2; contact_submit carries the topic only). Ignored unless the visitor accepted. */
+/**
+ * Send one of the plan's website events (§4.2; contact_submit carries the topic only; the cash
+ * application events carry the number of documents only). Ignored unless the visitor accepted.
+ */
 export function track(
-  event: 'download_click' | 'contact_click' | 'social_click' | 'contact_submit',
+  event:
+    | 'download_click'
+    | 'contact_click'
+    | 'social_click'
+    | 'contact_submit'
+    | 'cash_application_code_request'
+    | 'cash_application_submit',
   params: Record<string, string>,
 ) {
   if (!GTM_ID || readConsent() !== 'granted') return;
