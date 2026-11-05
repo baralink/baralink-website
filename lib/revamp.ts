@@ -6,4 +6,4 @@
  * privacy sections, and the /cash application page), so the site never describes something users
  * cannot do yet; texts of a later phase stay hidden.
  */
-export const REVAMP_PHASE = 0;
+export const REVAMP_PHASE = 3;

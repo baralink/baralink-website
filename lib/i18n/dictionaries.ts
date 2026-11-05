@@ -258,7 +258,7 @@ const en = {
       // (Guinea, Loi L/2016/037/AN; GDPR for users in Europe) before this page is published.
       title: 'Privacy policy',
       metaDescription: 'What BaraLink collects, why, who it is shared with, and your choices: usage statistics and contact messages included.',
-      updated: 'Last updated: 17 October 2026',
+      updated: 'Last updated: 5 November 2026',
       intro: 'Your privacy matters to us. This page explains what BaraLink collects, why, who it is shared with, and the choices you have.',
       sections: [
         {
@@ -338,7 +338,7 @@ const en = {
       // DRAFT — to be approved by BaraLink and reviewed by a lawyer before final publication.
       title: 'Terms of use',
       metaDescription: 'Rules for using BaraLink as a client, worker or business account in Guinea: registration, escrow payments, cancellations, disputes and conduct.',
-      updated: 'Last updated: 18 October 2026',
+      updated: 'Last updated: 5 November 2026',
       intro: 'Welcome to BaraLink. By creating an account or using the BaraLink mobile app or website, you agree to these terms of use.',
       sections: [
         {
@@ -801,7 +801,7 @@ const fr: typeof en = {
     privacy: {
       title: 'Politique de confidentialité',
       metaDescription: 'Ce que BaraLink collecte, pourquoi, avec qui c’est partagé, et vos choix : statistiques d’utilisation et messages de contact compris.',
-      updated: 'Dernière mise à jour : 17 octobre 2026',
+      updated: 'Dernière mise à jour : 5 novembre 2026',
       intro: 'Votre vie privée est importante pour nous. Cette page explique ce que BaraLink collecte, pourquoi, avec qui c’est partagé et les choix dont vous disposez.',
       sections: [
         {
@@ -879,7 +879,7 @@ const fr: typeof en = {
     terms: {
       title: 'Conditions d’utilisation',
       metaDescription: 'Règles d’utilisation de BaraLink pour les clients, prestataires et comptes entreprises en Guinée : inscription, paiement sécurisé, annulations, litiges et conduite.',
-      updated: 'Dernière mise à jour : 18 octobre 2026',
+      updated: 'Dernière mise à jour : 5 novembre 2026',
       intro: 'Bienvenue sur BaraLink. En créant un compte ou en utilisant l’application mobile ou le site BaraLink, vous acceptez les présentes conditions d’utilisation.',
       sections: [
         {
